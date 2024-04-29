@@ -7,7 +7,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // All paths start with '/api/users'
 
-
 // Insert ensureLoggedIn on all routes that need protecting
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
