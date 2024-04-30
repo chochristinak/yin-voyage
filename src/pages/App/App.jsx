@@ -1,30 +1,31 @@
-import { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
-import AuthPage from '../AuthPage/AuthPage';
-import NavBar from '../../components/NavBar/NavBar';
-import AboutPage from '../AboutPage/AboutPage';
-import { getUser } from '../../utilities/users-service';
-
+import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import AuthPage from "../AuthPage/AuthPage";
+import NavBar from "../../components/NavBar/NavBar";
+import { getUser } from "../../utilities/users-service";
+import HomePage from "../HomePage/HomePage";
+import RetreatsListPage from "../RetreatsListPage/RetreatsListPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
 
   return (
     <main className="App">
-      { user ?
-          <>
-            <NavBar user={user} setUser={setUser}/>
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/about" element={<AboutPage />} />
-              {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
-              <Route path="/*" element={<Navigate to="/home" />} />
-            </Routes>
-          </>
-          :
-          <AuthPage setUser={setUser}/>
-      }
+      <NavBar user={user} setUser={setUser} />
+            <HomePage />
+      {user ? (
+        <>
+          <Routes>
+            
+            {/* Route components in here */}
+            <Route path="/retreats/:catalogName" element={<RetreatsListPage />} />
+            <Route path="/*" element={<Navigate to="/catalog" />} />
+          </Routes>
+        </>
+      ) : (
+        <AuthPage setUser={setUser} />
+      )}
     </main>
   );
 }

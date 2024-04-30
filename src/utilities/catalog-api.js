@@ -1,5 +1,5 @@
 import sendRequest from "./send-request";
-const BASE_URL = '/api/retreats';
+const BASE_URL = '/api/catalog';
 
 export async function getAll() {
   return sendRequest(BASE_URL);
@@ -12,6 +12,3 @@ export async function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
 
-// async function showRetreatsList() {
-//     return sendRequest(`${BASE_URL}/${catalogName}`)
-//   }
