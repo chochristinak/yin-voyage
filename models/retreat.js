@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// Ensure the Catalog model is processed by Mongoose (for populating retreat item queries)
+// Ensure the Catalog model is processed by Mongoose (for populating retreat queries)
 require('./catalog');
 const retreatSchema = require('./retreatSchema');
 

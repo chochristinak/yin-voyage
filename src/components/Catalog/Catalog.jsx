@@ -1,6 +1,5 @@
 import './Catalog.css'
 
-
 export default function Catalog({catalog}){
     return (
         <div className="catalog-card" style={{ backgroundImage: `url(${catalog.posterPath})` }}>

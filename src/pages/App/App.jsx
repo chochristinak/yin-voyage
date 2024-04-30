@@ -12,14 +12,14 @@ export default function App() {
 
   return (
     <main className="App">
-      <NavBar user={user} setUser={setUser} />
+            <NavBar user={user} setUser={setUser} />
             <HomePage />
       {user ? (
         <>
           <Routes>
             
             {/* Route components in here */}
-            <Route path="/retreats/:catalogName" element={<RetreatsListPage />} />
+            {/* <Route path="/:catalogName/retreats" element={<RetreatsListPage />} /> */}
             <Route path="/*" element={<Navigate to="/catalog" />} />
           </Routes>
         </>
