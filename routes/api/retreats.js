@@ -4,8 +4,13 @@ const retreatsCtrl = require('../../controllers/api/retreats');
 // require the authorization middleware function
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-router.get('/:catalogName', ensureLoggedIn, retreatsCtrl.getRetreatsByCatalog)
-router.get ('/', ensureLoggedin, retreatsCtrl.getAllRetreats )
-router.get('/retreat:id', retreatsCtrl.getRetreatById)
+// All paths start with '/api/retreats'
+router.get('/', retreatsCtrl.showAll);
+router.get(':catalogName/', retreatsCtrl.getRetreatsByCatalog)
+router.get('/:id', retreatsCtrl.getById)
+router.put('/:id/availability', retreatsCtrl.bookSpot)
+
+
+
 module.exports = router;
 

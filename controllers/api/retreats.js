@@ -3,9 +3,20 @@ const Catalog = require('../../models/catalog');
 
 module.exports = {
     getRetreatsByCatalog,
-    getAllRetreats,
-    getRetreatById,
+    getById,
+    bookSpot, 
+    showAll
     
+  }
+  async function showAll(req, res) {
+    console.log('hello')
+    try {
+      const retreats = await Retreat.find({});
+      console.log(retreats)
+      res.json(retreats);
+    } catch (error) {
+      return res.status(500).send(error.message);
+    }
   }
   
 async function getRetreatsByCatalog(req, res) {
@@ -18,20 +29,11 @@ async function getRetreatsByCatalog(req, res) {
   console.log(retreats)
 }
 
-async function getAllRetreats (req, res){
+async function getById (req, res) {
   try {
-    const retreats = await Retreat.find()
-    return res.status(200).json({ retreats })
-  } catch (error) {
-      return res.status(500).send(error.message);
-  }
-}
-
-async function getRetreatById (req, res) {
-  try {
-      const { id } = req.params;
-      const retreat = await Retreat.findById(id)
-      if (dino) {
+      const { id } = req.params.id;
+      const retreat = await Retreat.findById(req.params.id)
+      if (retreat) {
           return res.status(200).json({ retreat });
       }
       return res.status(404).send('Sorry, no retreats match that id');
@@ -39,3 +41,29 @@ async function getRetreatById (req, res) {
       return res.status(500).send(error.message);
   }
 }
+
+
+async function bookSpot(req, res) {
+  try {
+    // Find the retreat
+    const retreat = await Retreat.findById(req.params.id);
+    
+    // Check if there are available spots
+    if (retreat.availableSpots > 0) {
+      // Decrease the available spots
+      retreat.availableSpots -= 1;
+      
+      // Save the updated retreat
+      const updatedRetreat = await retreat.save();
+      
+      // Return the updated retreat as a JSON object
+      res.json(updatedRetreat);
+    } else {
+      // Throw an error if there are no available spots
+      throw new Error('No available spots left to book.');
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
+};

@@ -2,9 +2,11 @@ require('dotenv').config();
 require('./config/database');
 
 const Catalog = require('./models/catalog');
-const Retreat = require('./models/retreat')
+const Retreat = require('./models/retreat');
 
-const catalogs = [
+(async function() {
+  await Catalog.deleteMany({});
+  const catalogs = await Catalog.create([
   {
     name: "LUXURY",
     retreatType: "RESORT AND SPA YOGA RETREATS",
@@ -47,136 +49,129 @@ const catalogs = [
     posterPath:
       "https://plus.unsplash.com/premium_photo-1669446008661-6729d2e91b00?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-];
+]);
 
-
-const retreats = [
+await Retreat.deleteMany({});
+  const retreats = await Retreat.create([
   {
     title: "Laguna Leuisure",
     description: "Experience the ultimate luxury in the heart of Nicaragua. Unwind and rejuvenate in our exclusive lagoon retreat.",
     location: "Nicaragua",
-    startDate: new Date("2024-05-20"),
-    endDate: new Date("2024-05-27"),
+    startDate: "2024-05-20",
+    endDate: "2024-05-27",
     price: 2000,
-    availableSpots: 8,
-    retreatType: "Luxury"
+    availableSpots: 8
+  },
+    {
+      title: "Empowerment Escape",
+      description: "Join us in Costa Rica for a transformative journey. Empower your mind, body, and spirit in the lush tropical rainforest.",
+      location: "Costa Rica",
+      startDate: "2024-07-15",
+      endDate: "2024-07-22",
+      price: 1800,
+      availableSpots: 10
+    },
+    {
+      title: "Edge of Adventure",
+      description: "Push your boundaries and step into the unknown. Experience the thrill of adventure in the wild landscapes of Costa Rica.",
+      location: "Costa Rica",
+      startDate: "2024-09-10",
+      endDate: "2024-09-17",
+      price: 1500,
+      availableSpots: 12
+  
   },
   {
-    title: "Empowerment Escape",
-    description: "Join us in Costa Rica for a transformative journey. Empower your mind, body, and spirit in the lush tropical rainforest.",
-    location: "Costa Rica",
-    startDate: new Date("2024-07-15"),
-    endDate: new Date("2024-07-22"),
-    price: 1800,
-    availableSpots: 10,
-    retreatType: "Empowerment"
+      title: "Waves of Dharma",
+      description: "Ignite your passion and stoke your spirit. Join us for a week of excitement and discovery in Nicaragua.",
+      location: "Nicaragua",
+      startDate: "2024-11-05",
+      endDate: "2024-11-12",
+      price: 1700,
+      availableSpots: 10
+  },
+  {
+      title: "Mindfulness & Meditation",
+      description: "Find your inner peace in the paradise of Costa Rica. A week of relaxation, meditation, and serenity awaits you.",
+      location: "Costa Rica",
+      startDate: "2025-01-20",
+      endDate: "2025-01-27",
+      price: 1900,
+      availableSpots: 8
+  },
+  {
+      title: "Vitamin Sea and Shavasana",
+      description: "Go with the flow and ride the tide. Experience the rhythm of the ocean in our exclusive beach retreat in Nicaragua.",
+      location: "Nicaragua",
+      startDate: "2025-03-15",
+      endDate: "2025-03-22",
+      price: 2100,
+      availableSpots: 6
+  },
+  {
+      title: "Wisdom over Ego",
+      description: "Elevate your experience and level up in luxury. Indulge in the finest amenities in our premium retreat in Costa Rica.",
+      location: "Costa Rica",
+      startDate: "2025-05-10",
+      endDate: "2025-05-17",
+      price: 2300,
+      availableSpots: 5
   },
   {
     title: "Edge of Adventure",
     description: "Push your boundaries and step into the unknown. Experience the thrill of adventure in the wild landscapes of Costa Rica.",
     location: "Costa Rica",
-    startDate: new Date("2024-09-10"),
-    endDate: new Date("2024-09-17"),
+    startDate: "2024-09-10",
+    endDate: "2024-09-17",
     price: 1500,
-    availableSpots: 12,
-    retreatType: "Edge"
-},
-{
-    title: "Waves of Dharma",
+    availableSpots: 12
+  },
+  {
+    title: "Stoke Your Spirit",
     description: "Ignite your passion and stoke your spirit. Join us for a week of excitement and discovery in Nicaragua.",
     location: "Nicaragua",
-    startDate: new Date("2024-11-05"),
-    endDate: new Date("2024-11-12"),
+    startDate: "2024-11-05",
+    endDate: "2024-11-12",
     price: 1700,
-    availableSpots: 10,
-    retreatType: "Stoke"
-},
-{
-    title: "Mindfulness & Meditation",
+    availableSpots: 10
+  },
+  {
+    title: "Inner Peace in Paradise",
     description: "Find your inner peace in the paradise of Costa Rica. A week of relaxation, meditation, and serenity awaits you.",
     location: "Costa Rica",
-    startDate: new Date("2025-01-20"),
-    endDate: new Date("2025-01-27"),
+    startDate: "2025-01-20",
+    endDate: "2025-01-27",
     price: 1900,
-    availableSpots: 8,
-    retreatType: "Inner Peace"
-},
-{
-    title: "Vitamin Sea and Shavasana",
+    availableSpots: 8
+  
+  },
+  {
+    title: "Tide & Flow",
     description: "Go with the flow and ride the tide. Experience the rhythm of the ocean in our exclusive beach retreat in Nicaragua.",
     location: "Nicaragua",
-    startDate: new Date("2025-03-15"),
-    endDate: new Date("2025-03-22"),
+    startDate: "2025-03-15",
+    endDate: "2025-03-22",
     price: 2100,
-    availableSpots: 6,
-    retreatType: "Tide & Flow"
-},
-{
-    title: "Wisdom over Ego",
+    availableSpots: 6
+    
+  },
+  {
+    title: "Level Up in Luxury",
     description: "Elevate your experience and level up in luxury. Indulge in the finest amenities in our premium retreat in Costa Rica.",
     location: "Costa Rica",
-    startDate: new Date("2025-05-10"),
-    endDate: new Date("2025-05-17"),
+    startDate: "2025-05-10",
+    endDate: "2025-05-17",
     price: 2300,
-    availableSpots: 5,
-    retreatType: "Level Up"
-},
-{
-  title: "Edge of Adventure",
-  description: "Push your boundaries and step into the unknown. Experience the thrill of adventure in the wild landscapes of Costa Rica.",
-  location: "Costa Rica",
-  startDate: new Date("2024-09-10"),
-  endDate: new Date("2024-09-17"),
-  price: 1500,
-  availableSpots: 12,
-  retreatType: "Edge"
-},
-{
-  title: "Stoke Your Spirit",
-  description: "Ignite your passion and stoke your spirit. Join us for a week of excitement and discovery in Nicaragua.",
-  location: "Nicaragua",
-  startDate: new Date("2024-11-05"),
-  endDate: new Date("2024-11-12"),
-  price: 1700,
-  availableSpots: 10,
-  retreatType: "Stoke"
-},
-{
-  title: "Inner Peace in Paradise",
-  description: "Find your inner peace in the paradise of Costa Rica. A week of relaxation, meditation, and serenity awaits you.",
-  location: "Costa Rica",
-  startDate: new Date("2025-01-20"),
-  endDate: new Date("2025-01-27"),
-  price: 1900,
-  availableSpots: 8,
-  retreatType: "Inner Peace"
-},
-{
-  title: "Tide & Flow",
-  description: "Go with the flow and ride the tide. Experience the rhythm of the ocean in our exclusive beach retreat in Nicaragua.",
-  location: "Nicaragua",
-  startDate: new Date("2025-03-15"),
-  endDate: new Date("2025-03-22"),
-  price: 2100,
-  availableSpots: 6,
-  retreatType: "Tide & Flow"
-},
-{
-  title: "Level Up in Luxury",
-  description: "Elevate your experience and level up in luxury. Indulge in the finest amenities in our premium retreat in Costa Rica.",
-  location: "Costa Rica",
-  startDate: new Date("2025-05-10"),
-  endDate: new Date("2025-05-17"),
-  price: 2300,
-  availableSpots: 5,
-  retreatType: "Stoke"
-},
-]
+    availableSpots: 5
+  
+  },
 
-  console.log(catalogs)
-  console.log(retreats)
-
-  process.exit();
+  
+]);
 
 
+
+process.exit();
+
+})();
 

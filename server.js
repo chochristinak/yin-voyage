@@ -26,11 +26,17 @@ const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/catalogs', require('./routes/api/catalogs'));
+app.use('/api/retreats', require('./routes/api/retreats'));
+
+
+
 
 // Protect all routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn');
-// app.use('/api/items', ensureLoggedIn, require('./routes/api/items'));
-// app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+// app.use('/api/booking', ensureLoggedIn, require('./routes/api/booking'));
+// app.use('/api/reviews', ensureLoggedIn, require('./routes/api/reviews'));
+
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests

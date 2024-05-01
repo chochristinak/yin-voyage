@@ -8,7 +8,7 @@ module.exports = {
 
 async function showAllCatalogs(req, res) {
   try {
-    const catalogs = await Catalog.findAll({});
+    const catalogs = await Catalog.find({});
     res.json(catalogs);
   } catch (error) {
     return res.status(500).send(error.message);

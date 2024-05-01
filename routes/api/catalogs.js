@@ -4,6 +4,10 @@ const catalogsCtrl = require('../../controllers/api/catalogs');
 // require the authorization middleware function
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-router.get('/catalog:id/retreats', catalogsCtrl.showAllCatalogs);
+// All paths start with '/api/catalog'
+
+router.get('/', catalogsCtrl.showAllCatalogs);
+
+router.get('/catalog:id/retreats', catalogsCtrl.showRetreatsInCatalog)
 
 module.exports = router;

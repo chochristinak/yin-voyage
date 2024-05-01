@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const catalogSchema = new Schema({
-  name: { type: String, required: true},
-  retreatType: { type: String, required: true },
-  posterPath: { type: String },
+  name: { type: String},
+  retreatType: { type: String},
+  posterPath: { type: String},
   sortOrder: Number,
 }, {
   timestamps: true

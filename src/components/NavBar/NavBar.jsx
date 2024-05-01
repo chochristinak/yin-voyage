@@ -12,9 +12,11 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link to="/catalog">Catalog</Link>
       &nbsp; | 
+      <Link to="/retreats">All Retreats</Link>&nbsp;
+      &nbsp; | &nbsp;
       <Link to="/">About</Link>&nbsp;
       &nbsp; | &nbsp;
-      <span>Welcome, {user.name}.</span>
+      <span>Welcome, {user?.name}.</span>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Log Out</Link>
       <div> <SearchComponent /></div>
