@@ -4,7 +4,8 @@ const Catalog = require('../../models/catalog');
 module.exports = {
     getRetreatsByCatalog,
     getAllRetreats,
-    getRetreatById
+    getRetreatById,
+    
   }
   
 async function getRetreatsByCatalog(req, res) {

@@ -6,7 +6,8 @@
     width: 30%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgba(76, 175, 80, 0.9); 
+    background-color: rgba(126, 202, 129, 0.712); 
+    opacity: .7;
     background-image: url();
   }
   

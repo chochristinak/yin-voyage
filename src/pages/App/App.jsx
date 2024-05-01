@@ -6,6 +6,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { getUser } from "../../utilities/users-service";
 import HomePage from "../HomePage/HomePage";
 import RetreatsListPage from "../RetreatsListPage/RetreatsListPage";
+import SearchComponent from "../../components/SearchComponent/SearchComponent";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -13,6 +14,7 @@ export default function App() {
   return (
     <main className="App">
             <NavBar user={user} setUser={setUser} />
+            <SearchComponent />
             <HomePage />
       {user ? (
         <>
@@ -20,7 +22,7 @@ export default function App() {
             
             {/* Route components in here */}
             {/* <Route path="/:catalogName/retreats" element={<RetreatsListPage />} /> */}
-            <Route path="/*" element={<Navigate to="/catalog" />} />
+            {/* <Route path="/*" element={<Navigate to="/catalog" />} /> */}
           </Routes>
         </>
       ) : (

@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../models')
 const Catalog = require('../models/catalog')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))

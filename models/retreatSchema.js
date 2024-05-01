@@ -1,7 +1,7 @@
 const Schema = require('mongoose').Schema;
 
 
-const retreatSchema = new mongoose.Schema({
+const retreatSchema = new Schema({
     title: {
       type: String,
       required: true
@@ -35,7 +35,7 @@ const retreatSchema = new mongoose.Schema({
       ref: 'Catalog'
     },
     reviews: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Review'
     }]
   }, {

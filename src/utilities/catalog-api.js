@@ -13,6 +13,6 @@ export async function getById(id) {
 }
 
 async function showRetreatsList() {
-    return sendRequest(`${BASE_URL}/retreats`)
+    return sendRequest(`${BASE_URL}/${id}/retreats`)
   }
 

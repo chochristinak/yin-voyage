@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function SearchComponent({ retreats }) {
+export default function SearchComponent({retreats}) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -45,7 +45,7 @@ export default function SearchComponent({ retreats }) {
             <div key={index}>
               <h3>{result.name}</h3>
               <p>{result.location}</p>
-              // link to see retreat locations //
+              {/* // link to see retreat locations // */}
             </div>
           ))}
         </div>

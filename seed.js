@@ -4,57 +4,53 @@ require('./config/database');
 const Catalog = require('./models/catalog');
 const Retreat = require('./models/retreat')
 
-
-(async function () {
-  await Catalog.deleteMany({});
-  const catalogs = await Catalog.create([
-      {
-        name: "LUXURY",
-        retreatType: "RESORT AND SPA YOGA RETREAT",
-        posterPath:
-          "https://plus.unsplash.com/premium_photo-1661598599843-8d98b0691372?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        name: "EMPOWERMENT",
-        retreatType: "INTENSIVE YOGA RETREAT",
-        posterPath:
-          "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        name: "EDGE",
-        retreatType: "YOGA IMMERSION RETREAT",
-        posterPath:
-          "https://images.unsplash.com/photo-1593810451137-5dc55105dace?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        name: "STOKE",
-        retreatType: "YOGA ADVENTURE RETREAT",
-        posterPath:
-          "https://plus.unsplash.com/premium_photo-1664442991387-52d844d479e8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        name: "INNER PEACE",
-        retreatType: "DETOX YOGA RETREAT",
-        posterPath:
-          "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1520&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        name: "TIDE & FLOW",
-        retreatType: "YOGA & SURF RETREAT",
-        posterPath:
-          "https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8fHw%3D",
-      },
-      {
-        name: "LEVEL UP",
-        retreatType: "ADVANCED TRAINING & CERTIFICATION",
-        posterPath:
-          "https://plus.unsplash.com/premium_photo-1669446008661-6729d2e91b00?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      }
-  ]);
+const catalogs = [
+  {
+    name: "LUXURY",
+    retreatType: "RESORT AND SPA YOGA RETREATS",
+    posterPath:
+      "https://images.unsplash.com/photo-1444312645910-ffa973656eba?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHlpbiUyMHlvZ2F8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    name: "EMPOWERMENT",
+    retreatType: "INTENSIVE YOGA RETREATS",
+    posterPath:
+      "https://images.unsplash.com/photo-1574406280735-351fc1a7c5e0?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fGludGVuc2UlMjB5b2dhfGVufDB8fDB8fHww",
+  },
+  {
+    name: "EDGE",
+    retreatType: "YOGA IMMERSION RETREATS",
+    posterPath:
+      "https://images.unsplash.com/photo-1567345911782-c2b16ed5f50d?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "STOKE",
+    retreatType: "YOGA ADVENTURE RETREATS",
+    posterPath:
+      "https://plus.unsplash.com/premium_photo-1664442991387-52d844d479e8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "INNER PEACE",
+    retreatType: "DETOX YOGA RETREATS",
+    posterPath:
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1520&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "TIDE & FLOW",
+    retreatType: "YOGA & SURF RETREATS",
+    posterPath:
+      "https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTJ8fHxlbnwwfHx8fHw%3D",
+  },
+  {
+    name: "LEVEL UP",
+    retreatType: "ADVANCED TRAINING & CERTIFICATION",
+    posterPath:
+      "https://plus.unsplash.com/premium_photo-1669446008661-6729d2e91b00?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
 
 
-  await Retreat.deleteMany({});
-  const retreats = await Retreat.create([
+const retreats = [
   {
     title: "Laguna Leuisure",
     description: "Experience the ultimate luxury in the heart of Nicaragua. Unwind and rejuvenate in our exclusive lagoon retreat.",
@@ -175,12 +171,12 @@ const Retreat = require('./models/retreat')
   availableSpots: 5,
   retreatType: "Stoke"
 },
-])
+]
 
   console.log(catalogs)
   console.log(retreats)
 
   process.exit();
 
-})();
+
 
