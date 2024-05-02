@@ -6,8 +6,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // All paths start with '/api/retreats'
 router.get('/', retreatsCtrl.showAll);
-router.get(':catalogName/', retreatsCtrl.getRetreatsByCatalog)
 router.get('/:id', retreatsCtrl.getById)
+router.get(':catalogName/', retreatsCtrl.getRetreatsByCatalog)
 router.put('/:id/availability', retreatsCtrl.bookSpot)
 
 

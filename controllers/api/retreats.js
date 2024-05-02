@@ -26,15 +26,14 @@ async function getRetreatsByCatalog(req, res) {
   }
   const retreats = await Retreat.find({ catalog: catalog._id });
   res.json(retreats)
-  console.log(retreats)
+  // console.log(retreats)
 }
 
-async function getById (req, res) {
+async function getById(req, res) {
   try {
-      const { id } = req.params.id;
-      const retreat = await Retreat.findById(req.params.id)
+       const retreat = await Retreat.findById(req.params.id)
       if (retreat) {
-          return res.status(200).json({ retreat });
+          res.json(retreat);
       }
       return res.status(404).send('Sorry, no retreats match that id');
   } catch (error) {

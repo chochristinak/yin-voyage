@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import './SearchComponent.css'
 
-export default function SearchComponent({retreats}) {
+export default function SearchComponent({ retreats }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -29,7 +30,7 @@ export default function SearchComponent({retreats}) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
+        <input className="search-bar"
           type="text"
           value={searchTerm}
           onChange={handleChange}
@@ -42,7 +43,7 @@ export default function SearchComponent({retreats}) {
       {searchResults.length > 0 && (
         <div>
           {searchResults.map((result, index) => (
-            <div key={index}>
+            <div key={index} className="search-bar-results">
               <h3>{result.name}</h3>
               <p>{result.location}</p>
               {/* // link to see retreat locations // */}

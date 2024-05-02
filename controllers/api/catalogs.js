@@ -10,10 +10,12 @@ async function showAllCatalogs(req, res) {
   try {
     const catalogs = await Catalog.find({});
     res.json(catalogs);
+    console.log(catalogs)
   } catch (error) {
     return res.status(500).send(error.message);
   }
 }
+
 
 async function showRetreatsInCatalog(req, res) {
   try {

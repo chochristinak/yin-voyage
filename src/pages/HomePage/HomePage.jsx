@@ -6,10 +6,14 @@ import * as catalogsAPI from '../../utilities/catalogs-api';
 
 
 export default function HomePage() {
-  const [catalogs, setCatalogs] = useState(true)
+  const [catalogs, setCatalogs] = useState([])
   const [selectedCatalog, setSelectedCatalog] = useState([]);
   const handleCatalogClick = (catalog) => {
     setSelectedCatalog(catalog);
+  };
+  // Function to close modal
+  const handleCloseModal = () => {
+    setSelectedCatalog(null);
   };
 
   useEffect(function() {
@@ -22,11 +26,7 @@ export default function HomePage() {
   },[])
   console.log(catalogs)
 
-  // Function to close modal
-  const handleCloseModal = () => {
-    setSelectedCatalog(null);
-  };
-
+  
   return (
     <>
       <h2>CATALOG</h2>

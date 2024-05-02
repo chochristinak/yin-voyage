@@ -15,4 +15,8 @@ export async function bookSpot(id){
   return sendRequest(`${BASE_URL}/${id}/availability`, 'PUT')
 }
 
+// export async function getRetreatsByCatalog(){
+//   return sendRequest((`${BASE_URL}/${id}/retreats`));
+// }
+
 
