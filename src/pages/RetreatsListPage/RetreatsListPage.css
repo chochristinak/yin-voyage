@@ -1,0 +1,12 @@
+.retreat-details {
+    display: flex;
+  }
+  
+  .retreat-info {
+    flex: 1;
+  }
+  
+  .reviews {
+    flex: 1;
+  }
+  

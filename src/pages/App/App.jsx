@@ -25,7 +25,7 @@ export default function App() {
             <Route path="/retreats/:id" element={<RetreatDetailsPage />} />
             <Route path="/bookings" element={<BookingHistoryPage />} />
 
-            <Route path="/*" element={<Navigate to="/catalogs" />} />
+            {/* <Route path="/*" element={<Navigate to="/catalogs" />} /> */}
           </Routes>
         </>
       ) : (
