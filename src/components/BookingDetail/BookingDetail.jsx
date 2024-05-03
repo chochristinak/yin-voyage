@@ -1,49 +1,18 @@
-import RetreatsListItem from "../RetreatsListItem/RetreatsListItem";
-
-export default function BookingDetail({ booking, handleChangeQty, handleCheckout }) {
-  if (!booking) return null;
-
-  const retreatListItem = booking.retreatListItem.map(retreat =>
-    <RetreatsListItem
-      retreatListItem={retreat}
-      isPaid={booking.isPaid}
-      handleChangeQty={handleChangeQty}
-      key={retreat._id}
-    />
-  );
-
+export default function BookingDetail({ booking }) {
   return (
-    <div className="BookingDetails">
-      <div className="section-heading">
-        {booking.isPaid ?
-          <span>BOOK THIS RETREAT<span className="smaller">{booking.bookingId}</span></span>
-          :
-          <span>EXPLORE OTHERS</span>
-        }
-        <span>{new Date(booking.updatedAt).toLocaleDateString()}</span>
-      </div>
-      <div className="RetreatListItem-wrapper">
-        {retreatListItem.length ?
-          <>
-            {retreatListItem}
-            <section className="total">
-              {booking.isPaid ?
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
-                :
-                <button
-                  className="btn-sm"
-                  onClick={handleCheckout}
-                  disabled={!retreatListItem.length}
-                >CHECKOUT</button>
-              }
-              <span>{booking.totalQty}</span>
-              <span className="right">${booking.bookingTotal.toFixed(2)}</span>
-            </section>
-          </>
-          :
-          <div className="plan-retreat">Plan your blissful retreat</div>
-        }
-      </div>
+    <div className="booking-card">
+      <h3>Booking ID: {booking.bookingId}</h3>
+      <p>Booking Date: {booking.createdAt}</p>
+      {booking.retreatListItems.map((item, idx) => (
+        <div key={idx}>
+          <h4>{item.retreat.title}</h4>
+          <p>Quantity: {item.qty}</p>
+          <p>Price: {item.extPrice}</p>
+          <p>Retreat Start Date: {new Date(item.retreat.startDate).toLocaleDateString()}</p>
+          <p>Retreat End Date: {new Date(item.retreat.endDate).toLocaleDateString()}</p>
+        </div>
+      ))}
     </div>
   );
-}
+};
+

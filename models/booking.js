@@ -1,13 +1,15 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const retreatSchema = require ('./retreatSchema');
 
 
 
 const retreatListItemSchema = new Schema({
   qty: { type: Number, default: 1 },
-  retreat: retreatSchema
+  retreat: {
+    type: Schema.Types.ObjectId,
+    ref: "Retreat",
+  }
 }, {
   timestamps: true,
   toJSON: { virtuals: true }
@@ -58,9 +60,9 @@ bookingSchema.statics.getCart = function(userId) {
   const cart = this;
   // Get the retreat from the "catalog"
   const retreatListItems = cart.retreatListItems.find(retreatListItem => retreatListItem.retreat._id.equals(retreatId));
-  if (retreatListItem) {
+  if (retreatListItems) {
     // It already exists, so increase the qty
-    retreatListItem.qty += 1;
+    retreatListItems.qty += 1;
   } else {
     // Get the item from the "catalog"
     // Note how the mongoose.model method behaves as a getter when passed one arg vs. two
@@ -106,8 +108,6 @@ bookingSchema.methods.updateAvailableSpots = async function() {
     // Save the updated retreat
     await retreat.save();
   }
-
-  // return the save() method's promise
   return booking.save();
 };
 

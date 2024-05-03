@@ -1,95 +1,59 @@
 import { useState, useEffect, useRef } from "react";
 import * as bookingsAPI from "../../utilities/bookings-api";
 import * as retreatsAPI from "../../utilities/retreats-api";
-import BookingDetail from "../../components/BookingDetail/BookingDetail";
 import { useNavigate, useParams } from "react-router-dom";
-import RetreatDetailCard from "../../components/RetreatsListItem/RetreatsListItem";
+import RetreatDetailCard from "../../components/RetreatDetailCard/RetreatDetailCard";
+import { Link } from "react-router-dom";
+import './RetreatDetailsPage.css'
 
-export default function RetreatDetailsPage({
-  handleBookSpot,
-  handleChangeQty,
-}) {
-  const [showRetreat, setShowRetreat] = useState(true);
+export default function RetreatDetailsPage() {
   const [retreat, setRetreat] = useState([]);
-  const [activeCat, setActiveCat] = useState("");
-  const [cart, setCart] = useState(null);
-  const categoriesRef = useRef([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
   const navigate = useNavigate();
 
   const { id } = useParams();
-  useEffect(function () {
-    async function getRetreatById() {
-      const retreat = await retreatsAPI.getById(id);
-      setRetreat(retreat);
-    }
-    getRetreatById();
-  }, [id]);
-
-  useEffect(function () {
-    // Load cart (a cart is the unpaid order for the logged in user)
-    async function getCart() {
-      const cart = await bookingsAPI.getCart();
-      setCart(cart);
-    }
-    getCart();
-  }, []);
-
-  const [bookingInfo, setBookingInfo] = useState({
-    name: "",
-    email: "",
-    date: "",
-  });
-
-  const handleInputChange = (event) => {
-    setBookingInfo({
-      ...bookingInfo,
-      [event.target.name]: event.target.value,
-    });
-  };
+  useEffect(
+    function () {
+      async function getRetreatById() {
+        const retreat = await retreatsAPI.getById(id);
+        setRetreat(retreat);
+        console.log(retreat);
+      }
+      getRetreatById();
+    },
+    [id]
+  );
 
   /*--- Event Handlers ---*/
-  async function handleBookSpot(retreatId) {
-    const updatedCart = await bookingsAPI.addRetreatToCart(retreatId);
-    setCart(updatedCart);
+  async function handleBookingConfirmation() {
+    const bookingConfirmation = await bookingsAPI.addRetreat(retreat._id, retreat);
+    setConfirmationMessage(
+      `Booking confirmed for ${retreat.title}! 
+       Total price: ${retreat.price}. 
+       Start date: ${retreat.startDate.toLocaleString()}`)
   }
-
-  async function handleRetreatQty(retreatId, newQty) {
-    const updatedCart = await bookingsAPI.setRetreatQty(retreatId, newQty);
-    setCart(updatedCart);
-  }
-
-  async function handleCheckout() {
-    await bookingsAPI.checkout();
-    navigate("/bookings");
-  }
-  return (
-    <>
-      <div>
-        <RetreatDetailCard retreat={retreat} />
-
-        <h2>Book this Retreat</h2>
-        <form onSubmit={handleBookSpot}>
-          <label>
-            Name:
-            <input type="text" name="name" onChange={handleInputChange} />
-          </label>
-          <label>
-            Email:
-            <input type="email" name="email" onChange={handleInputChange} />
-          </label>
-          <label>
-            Date:
-            <input type="date" name="date" onChange={handleInputChange} />
-          </label>
-          <button type="submit">Book</button>
-        </form>
-      </div>
-
-      <BookingDetail
-        order={cart}
-        handleChangeQty={handleChangeQty}
-        handleCheckout={handleCheckout}
-      />
+    return (
+      <>
+        <h2>Retreat Details</h2>
+        <div>
+          <RetreatDetailCard retreat={retreat} />
+          <button onClick={() => setIsModalOpen(true)}>
+            Reserve Your Spot
+          </button>
+        </div>
+        {isModalOpen && (
+          <div className="modal">
+            <h2>Confirm Booking</h2>
+            <p>Are you sure you want to book this retreat?</p>
+            <button onClick={handleBookingConfirmation}>Confirm</button>
+            <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+                {confirmationMessage && <p className="badge">{confirmationMessage}</p>}
+                <div>
+                    <Link to="/bookings">Go to bookings</Link>
+                </div>
+            </div>
+        )}
     </>
-  );
+)
 }

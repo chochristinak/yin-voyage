@@ -12,7 +12,7 @@ export async function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
 
-async function showRetreatsList() {
-    return sendRequest(`${BASE_URL}/${id}`)
-  }
+// async function showRetreatsList() {
+//     return sendRequest(`${BASE_URL}/${id}`)
+//   }
 

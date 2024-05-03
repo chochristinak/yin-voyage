@@ -1,0 +1,32 @@
+.scrollbox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px; 
+    height: 400px; 
+    width: 650px; 
+    overflow-y: auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+  }
+.Booking-card {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 200px;
+    height: 175px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  

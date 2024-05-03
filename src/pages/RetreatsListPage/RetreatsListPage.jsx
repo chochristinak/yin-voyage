@@ -12,6 +12,7 @@ export default function RetreatsListPage() {
   async function getRetreats() {
     const retreats = await retreatsAPI.getAll();
     setRetreatListItems(retreats)
+    console.log(retreats)
   } 
   getRetreats();
 },[])

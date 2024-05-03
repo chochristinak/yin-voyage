@@ -10,7 +10,7 @@ export default function RetreatListItem({ retreat }) {
           <h2>{retreat.title}</h2>
           <p>Location: {retreat.location}</p>
           <p>Start Date: {retreat.startDate}</p>
-          <Link to={`/retreats/${retreat.id}`}>View Details</Link>
+          <Link to={`/retreats/${retreat._id}`}>View Details</Link>
         </div>
         </div>
     );

@@ -28,6 +28,10 @@ const retreatSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Catalog",
     },
+    bookings: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Booking'
+    }],
     reviews: [
       {
         type: Schema.Types.ObjectId,

@@ -1,27 +1,31 @@
 import sendRequest from "./send-request";
-const BASE_URL = '/api/booking';
+const BASE_URL = '/api/bookings';
 
 // Retrieve an unpaid order for the logged in user
-export function getCart() {
-    return sendRequest(`${BASE_URL}/cart`);
+export async function getAll() {
+  return sendRequest(BASE_URL);
+}
+export function submitRequest() {
+    return sendRequest(`${BASE_URL}`);
   }
   
   // Add an item to the cart
-  export function addRetreatToCart(retreatId) {
+  export function newBooking(retreatId) {
     // Just send itemId for best security (no pricing)
-    return sendRequest(`${BASE_URL}/cart/retreats/${retreatId}`, 'POST');
+    return sendRequest(`${BASE_URL}/retreat/${retreatId}`, 'POST');
   }
   
   // Update the item's qty in the cart
   // Will add the item to the order if not currently in the cart
   // Sending info via the data payload instead of a long URL
-  export function setRetreatQty(retreatId, newQty) {
-    return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { retreatId, newQty });
+  export function updateRetreat(retreatId, newQty) {
+    return sendRequest(`${BASE_URL}/retreat/availability`, 'PUT', { retreatId, newQty });
   }
   
   // Updates the order's (cart's) isPaid property to true
-  export function checkout() {
-    // Changing data on the server, so make it a POST request
-    return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
+  export function addRetreat(retreatId, newBooking) {
+    console.log(retreatId, newBooking)
+    return sendRequest(`${BASE_URL}/new`, 'POST', {retreatId, newBooking});
   }
+  
   

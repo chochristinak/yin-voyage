@@ -1,10 +1,11 @@
 import './RetreatDetailCard.css'
 
-export default function RetreatDetailCard({ retreat }) {
+export default function RetreatDetailCard({retreat}) {
+
   const randomImageNumber = Math.floor(Math.random() * 1000);
   return (
     <div className="RetreatDetail-wrapper" style={{
-      backgroundImage: `url(https://picsum.photos/id/${randomImageNumber}/400/?)`,
+      backgroundImage: `url(https://picsum.photos/seed/${randomImageNumber}/400/?)`,
     }}>
       <div className="Retreatdetail-content">
         <h2>{retreat.title}</h2>
