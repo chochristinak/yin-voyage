@@ -89,7 +89,7 @@ async function updateReview(req, res) {
   } catch (err) {
     console.log(err);
   }
-  return res.json(retreat);
+  return res.json(reviewUpdate);
 }
 
 async function deleteReview(req, res) {
@@ -104,19 +104,20 @@ async function deleteReview(req, res) {
 }
 
 async function createReview(req, res) {
-  req.body.user = req.user._id;
-  req.body.userName = req.user.name;
-
-  const retreat = await Retreat.findById(req.params.id);
-
-  req.body.user = req.user._id;
-  req.body.userName = req.user.name;
-
-  retreat.reviews.push(req.body);
+  console.log(req.params)
+  console.log(req.body)
   try {
-    await retreat.save();
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name; 
+ 
+  console.log(req.body)
+  console.log('hello')
+  const retreat = await Retreat.findById(req.params.id);
+  const newReview = await Review.create(req.body)
+  retreat.reviews.push(newReview._id)
+await retreat.save();
   } catch (err) {
     console.log(err);
   }
-  res.json(retreat);
+  res.status(200)
 }

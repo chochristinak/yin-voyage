@@ -58,7 +58,7 @@ export default function RetreatDetailsPage() {
           </div>
         </div> 
       )}
-      <Reviews />
+     <Reviews retreat={retreat}/>
     </>
   );
 }

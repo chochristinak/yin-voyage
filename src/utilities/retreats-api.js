@@ -20,18 +20,10 @@ export function create(retreatId, newReview) {
   return sendRequest(`${BASE_URL}/${retreatId}/reviews`, 'POST', {newReview});
 }
 
-export function editReview(retreatId, editReview) {
-  console.log(retreatId, editReview)
-  return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}/edit`, 'GET', {retreatId, editReview, reviewId});
+export function updateReview(retreatId, reviewId, updateReview) {
+  return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'PUT', {updateReview, retreatId, reviewId});
 }
 
-export function updateReview(retreatId, updateReview) {
-  console.log(retreatId, updateReview)
-  return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'PUT', {retreatId, updateReview, reviewId});
+export function deleteReview(retreatId, reviewId) {
+  return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'DELETE', {retreatId, reviewId});
 }
-
-export function deleteReview(retreatId, deleteReview) {
-  console.log(retreatId, deleteReview)
-  return sendRequest (`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'POST', {retreatId, deleteReview, reviewId})
-}
-
