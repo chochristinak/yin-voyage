@@ -11,7 +11,7 @@ CSS Custom Properties
 }
 
 *, *:before, *:after {
-  box-sizing: border-box;
+  box-sizing: grid;
 }
 
 body {

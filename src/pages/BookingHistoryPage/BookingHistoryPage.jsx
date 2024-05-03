@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import * as bookingsAPI from '../../utilities/bookings-api.js';
 import BookingDetail from '../../components/BookingDetail/BookingDetail.jsx';
 import './BookingHistoryPage.css'
-import { Link } from 'react-router-dom';
 
 
 export default function BookingHistoryPage() {
@@ -17,6 +16,10 @@ export default function BookingHistoryPage() {
   getBookings();
 },[])
 
+async function handleEditReview(){}
+async function handleUpdateReview(){}
+async function handleDeleteReview(){}
+
   
   return (
     <>
@@ -26,9 +29,6 @@ export default function BookingHistoryPage() {
           <div key={booking._id} className="Booking-card">
             <BookingDetail booking={booking} />
            
-            {/* <Link to={`/retreats/${booking.retreat._id}/review`}>
-              Leave a Review</Link> */}
-              LEAVE A REVIEW
           </div>
         ))}
       </div>

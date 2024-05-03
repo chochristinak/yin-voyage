@@ -2,7 +2,7 @@ export default function BookingDetail({ booking }) {
   return (
     <div className="booking-card">
       <h3>Booking ID: {booking.bookingId}</h3>
-      <p>Booking Date: {booking.createdAt}</p>
+      <p>Booking Date: {new Date(booking.createdAt).toLocaleDateString()}</p>
       {booking.retreatListItems.map((item, idx) => (
         <div key={idx}>
           <h4>{item.retreat.title}</h4>

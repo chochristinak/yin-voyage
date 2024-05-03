@@ -1,15 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import * as bookingsAPI from "../../utilities/bookings-api";
 import * as retreatsAPI from "../../utilities/retreats-api";
-import * as reviewsAPI from "../../utilities/reviews-api";
 import { useNavigate, useParams } from "react-router-dom";
 import RetreatDetailCard from "../../components/RetreatDetailCard/RetreatDetailCard";
 import { Link } from "react-router-dom";
 import './RetreatDetailsPage.css'
+import Reviews from '../../components/Reviews/Reviews'
 
 export default function RetreatDetailsPage() {
   const [retreat, setRetreat] = useState([]);
-  const [reviewText, setReviewText] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const navigate = useNavigate();
@@ -35,16 +34,6 @@ export default function RetreatDetailsPage() {
        Total price: ${retreat.price}. 
        Start date: ${retreat.startDate.toLocaleString()}`)
   }
-  async function handleReviewSubmission(event) {
-    event.preventDefault();
-    const reviewData = {
-      retreatId: retreat._id,
-      text: reviewText,
-    };
-    const response = await reviewsAPI.create(reviewData);
-    setReviewText('');
-  }
-    
   return (
     <>
       <h2>Retreat Details</h2>
@@ -55,19 +44,7 @@ export default function RetreatDetailsPage() {
             Reserve Your Spot
           </button>
         </div>
-        <div className="reviews">
-          <h3>Reviews</h3>
-          {/* Display existing reviews here */}
-          <form className="review-input" onSubmit={handleReviewSubmission}>
-            <h4>Leave a Review</h4>
-            <textarea 
-              placeholder="Write your review here..."
-              value={reviewText}
-              onChange={e => setReviewText(e.target.value)}
-            />
-            <button type="submit">Submit Review</button>
-          </form>
-        </div>
+        
       </div>
       {isModalOpen && (
         <div className="modal">
@@ -79,8 +56,9 @@ export default function RetreatDetailsPage() {
           <div>
             <Link to="/bookings">Go to bookings</Link>
           </div>
-        </div>
+        </div> 
       )}
+      <Reviews />
     </>
   );
 }

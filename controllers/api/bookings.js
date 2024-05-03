@@ -12,9 +12,9 @@ async function index(req, res) {
   try {
     const bookings = await Booking.find({});
     console.log(bookings);
-    res.json(bookings);
+    return res.json(bookings);
   } catch (error) {
-    return res.status(500).send(error.message);
+    res.status(500).send(error.message);
   }
 }
 
