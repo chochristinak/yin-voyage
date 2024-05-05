@@ -1,37 +1,52 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f9f9f9;
-  }
-    .Retreat-card {
-      margin-top: 5px;
-      margin-bottom: 5px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      width: 150px;
-      height: 175px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    }
-    
-    .Retreat-card-content {
-      justify-items: center;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 5px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(4px);
-      border-radius: 0 0 10px 10px;
-    }
-    
-    .Retreat-card-content h2 {
-      margin: 0;
-      color: rgb(61, 58, 58);
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.RetreatsItem-wrapper {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 150px;
+  height: 175px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.Retreat-card-content {
+  justify-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border-radius: 0 0 10px 10px;
+}
+
+.Retreat-card-content h2 {
+  margin: 0;
+  color: rgb(61, 58, 58);
+}
+
+.rating-and-wishlist {
+  display: flex;
+  justify-content: space-between;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+}
+
+.wishlist-icon {
+  cursor: pointer;
+}

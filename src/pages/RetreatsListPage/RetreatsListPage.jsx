@@ -21,11 +21,14 @@ export default function RetreatsListPage() {
   return (
     <>
       <h1>Retreats List Page</h1>
+      <main className="Retreats-list-page">
       <div className="Retreats-list-wrapper">
         {retreatListItems.map((retreat, index) => (
           <RetreatListItem key={index} retreat={retreat} />
         ))}
       </div>
+      </main>
     </>
+    
   );
 }

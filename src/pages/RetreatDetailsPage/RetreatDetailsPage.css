@@ -7,3 +7,9 @@
     border-radius: 20px;
 }
 
+
+.reviews-scrollable {
+    max-height: 400px; 
+    overflow-y: auto;
+  }
+  

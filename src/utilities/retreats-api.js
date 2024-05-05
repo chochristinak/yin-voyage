@@ -20,8 +20,8 @@ export function create(retreatId, newReview) {
   return sendRequest(`${BASE_URL}/${retreatId}/reviews`, 'POST', {newReview});
 }
 
-export function updateReview(retreatId, reviewId, updateReview) {
-  return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'PUT', {updateReview, retreatId, reviewId});
+export function updateReview(retreatId, reviewId, updatedReview) {
+  return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'PUT', {updatedReview, retreatId, reviewId});
 }
 
 export function deleteReview(retreatId, reviewId) {
@@ -30,4 +30,8 @@ export function deleteReview(retreatId, reviewId) {
 
 export function getAllReviews(retreatId) {
   return sendRequest(`${BASE_URL}/${retreatId}/reviews/all`)
+}
+
+export function addToWishList(retreatId, wishlistItem){
+   return sendRequest(`${BASE_URL}/${retreatId}/wishlist`, 'POST', {wishlistItem})
 }

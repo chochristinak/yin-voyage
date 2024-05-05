@@ -8,12 +8,13 @@ export default function Reviews({retreat}) {
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
 
+  async function getReviews() {
+    const reviews = await retreatsAPI.getAllReviews();
+    setReviews(reviews)
+    console.log(reviews)
+  } 
+
   useEffect(function() {
-    async function getReviews() {
-      const reviews = await retreatsAPI.getAllReviews();
-      setReviews(reviews)
-      console.log(reviews)
-    } 
     getReviews();
   },[])
 
@@ -22,7 +23,7 @@ export default function Reviews({retreat}) {
   async function handleReviewSubmission(event) {
     event.preventDefault();
     const newReview = {
-      text: reviewText,
+      content: reviewText,
       rating: rating,
     };
     const response = await retreatsAPI.create(retreat._id , newReview);
@@ -32,12 +33,13 @@ export default function Reviews({retreat}) {
     console.log(newReview)
   }
 
-  async function handleEditReview(index) {
+  async function handleEditReview(index, newText) {
     const reviewToEdit = reviews[index];
+    reviewToEdit.content = newText; 
     const editedReview = await retreatsAPI.updateReview(
       retreat._id,
       reviewToEdit._id,
-      { content: reviewToEdit.text, rating: reviewToEdit.rating }
+      { content: reviewToEdit.content, rating: reviewToEdit.rating }
     );
     const updatedReviews = reviews.map((review, i) => {
       if (i === index) {
@@ -46,7 +48,10 @@ export default function Reviews({retreat}) {
       return review;
     });
     setReviews(updatedReviews);
+    getReviews();
   }
+  
+  
 
   async function handleDeleteReview(index) {
     const reviewToDelete = reviews[index];
@@ -63,13 +68,15 @@ export default function Reviews({retreat}) {
           <ReviewCard 
             key={index} 
             review={review} 
-            onEdit={() => handleEditReview(index)} 
+            onEdit = {handleEditReview} 
+            index = {index}
             onDelete={() => handleDeleteReview(index)} 
           />
         ))}
       <form className="review-input" onSubmit={handleReviewSubmission}>
         <h4>Leave a Review</h4>
         <textarea
+          name="content"
           placeholder="Tell Us About Your Experience"
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}

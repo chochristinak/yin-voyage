@@ -32,7 +32,7 @@ export default function HomePage() {
     <>
     <main className="HomePage">
      <TopHeader />
-     <h2>CATALOG</h2>
+     <h2>CATALOGS</h2>
         {catalogs.map((catalog, index) => (
           <div
             key={index}

@@ -69,8 +69,9 @@ export default function RetreatDetailsPage() {
             <Link to="/bookings">Go to bookings</Link>
           </div>
         </Modal>
-  
+        <div className="reviews-scrollable">
         <Reviews retreat={retreat}/>
+        </div>
       </>
     );
   }
