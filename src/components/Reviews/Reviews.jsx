@@ -1,12 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as retreatsAPI from "../../utilities/retreats-api";
 import "./Reviews.css";
+import ReviewCard from "../ReviewCard/ReviewCard";
 
 export default function Reviews({retreat}) {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
-  console.log(retreat)
+
+  useEffect(function() {
+    async function getReviews() {
+      const reviews = await retreatsAPI.getAllReviews();
+      setReviews(reviews)
+      console.log(reviews)
+    } 
+    getReviews();
+  },[])
+
+ 
   /*--- Event Handlers ---*/
   async function handleReviewSubmission(event) {
     event.preventDefault();
@@ -18,6 +29,7 @@ export default function Reviews({retreat}) {
     setReviewText("");
     setRating(0);
     setReviews([...reviews, response]);
+    console.log(newReview)
   }
 
   async function handleEditReview(index) {
@@ -44,22 +56,21 @@ export default function Reviews({retreat}) {
     });
     setReviews(updatedReviews);
   }
-
-  return (
-
-    <div className="reviews">
-      <h3>Reviews</h3>
-      {reviews.map((review, index) => (
-        <div key={index}>
-          <p>{review.text}</p>
-          <button onClick={() => handleEditReview(index)}>Edit</button>
-          <button onClick={() => handleDeleteReview(index)}>Delete</button>
-        </div>
-      ))}
+    return (
+      <div className="reviews">
+        <h3>Reviews</h3>
+        {reviews.map((review, index) => (
+          <ReviewCard 
+            key={index} 
+            review={review} 
+            onEdit={() => handleEditReview(index)} 
+            onDelete={() => handleDeleteReview(index)} 
+          />
+        ))}
       <form className="review-input" onSubmit={handleReviewSubmission}>
         <h4>Leave a Review</h4>
         <textarea
-          placeholder="Write your review here..."
+          placeholder="Tell Us About Your Experience"
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />

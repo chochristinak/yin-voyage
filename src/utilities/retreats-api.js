@@ -27,3 +27,7 @@ export function updateReview(retreatId, reviewId, updateReview) {
 export function deleteReview(retreatId, reviewId) {
   return sendRequest(`${BASE_URL}/${retreatId}/reviews/${reviewId}`, 'DELETE', {retreatId, reviewId});
 }
+
+export function getAllReviews(retreatId) {
+  return sendRequest(`${BASE_URL}/${retreatId}/reviews/all`)
+}

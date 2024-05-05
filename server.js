@@ -35,7 +35,6 @@ app.use('/api/retreats', require('./routes/api/retreats'));
 // Protect all routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/bookings', ensureLoggedIn, require('./routes/api/bookings'));
-// app.use('/api/reviews', ensureLoggedIn, require('./routes/api/reviews'));
 
 
 // The following "catch all" route (note the *) is necessary

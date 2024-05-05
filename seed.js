@@ -3,6 +3,7 @@ require('./config/database');
 
 const Catalog = require('./models/catalog');
 const Retreat = require('./models/retreat');
+const Review = require('./models/review');
 
 (async function() {
   await Catalog.deleteMany({});
@@ -165,11 +166,14 @@ await Retreat.deleteMany({});
     availableSpots: 5
   
   },
-
-  
 ]);
 
-
+await Review.deleteMany({});
+  const reviews = await Review.create([ 
+    { user : '6633c83f5cca6938bf10028a',
+      content: "This retreat was exactly what I needed to recharge and reconnect with myself. The location was serene, the instructors were knowledgeable, and the overall atmosphere was incredibly calming.",
+      rating: 5},
+  ]);
 
 process.exit();
 

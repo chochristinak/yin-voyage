@@ -1,6 +1,6 @@
 const Retreat = require("../../models/retreat");
-// const Catalog = require("../../models/catalog");
-// const Review = require("../models/review");
+const Catalog = require("../../models/catalog");
+const Review = require("../../models/review");
 // const Booking = require("../models/booking");
 
 module.exports = {
@@ -27,7 +27,7 @@ async function showAll(req, res) {
 
 async function getRetreatsByCatalog(req, res) {
   const catalogId = req.params.id;
-  const retreats = await Retreat.find({ retreatType: catalogId }).exec(); // Find all retreats with the given catalog ID
+  const retreats = await Retreat.find({ retreatType: catalogId }).exec(); 
   if (!retreats) {
     throw new Error(`No retreats found for catalog with ID ${catalogId}`);
   }
@@ -64,33 +64,38 @@ async function bookSpot(req, res) {
 
 async function editReview(req, res) {
   try {
-    const retreat = await Retreat.findOne({
-      "review._id": req.params.id,
-      "review.user": req.user._id,
+    const review = await Review.findOne({
+      _id: req.params.id,
+      user: req.user._id,
     });
-    const review = retreat.reviews.id(req.params.id);
     return res.json({ review });
   } catch (err) {
     res.status(400).json(err);
   }
 }
 
+
 async function updateReview(req, res) {
-  const retreat = await Retreat.findOne({
-    "review._id": req.params.id,
-    "review.user": req.user._id,
-  });
-  let reviewUpdate = retreat.reviews.id(req.params.id);
-  if (reviewUpdate) {
-    reviewUpdate.content = req.body.content;
-  }
   try {
-    await retreat.save();
+    // Find the review in the Review collection
+    const review = await Review.findOne({
+      _id: req.params.id,
+      user: req.user._id,
+    });
+
+    // Update the review's content
+    if (review) {
+      review.content = req.body.content;
+      await review.save();
+    }
+
+    return res.json(review);
   } catch (err) {
     console.log(err);
+    res.status(400).json(err);
   }
-  return res.json(reviewUpdate);
 }
+
 
 async function deleteReview(req, res) {
   const retreat = await Retreat.findOne({
@@ -104,20 +109,23 @@ async function deleteReview(req, res) {
 }
 
 async function createReview(req, res) {
-  console.log(req.params)
-  console.log(req.body)
+  // console.log(req.params);
+  // console.log(req.body);
   try {
-  req.body.user = req.user._id;
-  req.body.userName = req.user.name; 
- 
-  console.log(req.body)
-  console.log('hello')
-  const retreat = await Retreat.findById(req.params.id);
-  const newReview = await Review.create(req.body)
-  retreat.reviews.push(newReview._id)
-await retreat.save();
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name; 
+
+    console.log(req.body);
+    console.log('hello');
+    const retreat = await Retreat.findById(req.params.id).populate('reviews');
+    const newReview = await Review.create(req.body);
+    retreat.reviews.push(newReview._id);
+    await retreat.save();
+    return res.json(newReview);
   } catch (err) {
     console.log(err);
+    res.status(500).send(err);
   }
-  res.status(200)
 }
+
+

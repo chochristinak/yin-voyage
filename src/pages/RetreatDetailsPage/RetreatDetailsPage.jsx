@@ -6,6 +6,8 @@ import RetreatDetailCard from "../../components/RetreatDetailCard/RetreatDetailC
 import { Link } from "react-router-dom";
 import './RetreatDetailsPage.css'
 import Reviews from '../../components/Reviews/Reviews'
+import { Modal, Button } from 'react-bootstrap';
+
 
 export default function RetreatDetailsPage() {
   const [retreat, setRetreat] = useState([]);
@@ -34,31 +36,42 @@ export default function RetreatDetailsPage() {
        Total price: ${retreat.price}. 
        Start date: ${retreat.startDate.toLocaleString()}`)
   }
-  return (
-    <>
-      <h2>Retreat Details</h2>
-      <div className="retreat-details">
-        <div className="retreat-info">
-          <RetreatDetailCard retreat={retreat} />
-          <button onClick={() => setIsModalOpen(true)}>
-            Reserve Your Spot
-          </button>
+
+    return (
+      <>
+        <h2>Retreat Details</h2>
+        <div className="retreat-details">
+          <div className="retreat-info">
+            <RetreatDetailCard retreat={retreat} />
+            <Button onClick={() => setIsModalOpen(true)}>
+              Reserve Your Spot
+            </Button>
+          </div>
         </div>
-        
-      </div>
-      {isModalOpen && (
-        <div className="modal">
-          <h2>Confirm Booking</h2>
-          <p>Are you sure you want to book this retreat?</p>
-          <button onClick={handleBookingConfirmation}>Confirm</button>
-          <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+  
+        <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Booking</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Are you sure you want to book this retreat?</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleBookingConfirmation}>
+              Confirm
+            </Button>
+          </Modal.Footer>
           {confirmationMessage && <p className="badge">{confirmationMessage}</p>}
           <div>
             <Link to="/bookings">Go to bookings</Link>
           </div>
-        </div> 
-      )}
-     <Reviews retreat={retreat}/>
-    </>
-  );
-}
+        </Modal>
+  
+        <Reviews retreat={retreat}/>
+      </>
+    );
+  }
+  

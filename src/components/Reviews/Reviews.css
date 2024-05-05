@@ -1,76 +1,9 @@
-body {
-    background-color: #F5F5F5;
-    font-family: Arial, sans-serif;
-  }
+
   
+
   .review-form {
-    width: 80%;
-    margin: auto;
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .review-form h3 {
-    color: #333333;
-  }
-  
-  .review-form .rating-category {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #DDDDDD;
-    padding: 10px 0;
-  }
-  
-  .review-form .rating-category:last-child {
-    border-bottom: none;
-  }
-  
-  .review-form .rating-category span {
-    color: #777777;
-  }
-  
-  .review-form .stars {
-    display: flex;
-    direction: rtl;
-  }
-  
-  .review-form .stars input[type="radio"] {
-    display: none;
-  }
-  
-  .review-form .stars label {
-    color: #DDDDDD;
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  
-  .review-form .stars input[type="radio"]:checked ~ label {
-    color: #FFD700;
-  }
-  
-  .review-form textarea {
-    width: 100%;
-    border: 1px solid #DDDDDD;
-    border-radius: 5px;
+    height: 500px; /* Adjust as needed */
+    overflow-y: scroll;
     padding: 10px;
-    margin-top: 10px;
+    border: 1px solid #ccc;
   }
-  
-  .review-form button {
-    background-color: #007BFF;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .review-form button:hover {
-    background-color: #0056b3;
-  }
-  

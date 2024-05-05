@@ -3,6 +3,7 @@ import Catalog from "../../components/Catalog/Catalog";
 import "./HomePage.css";
 import CatalogModal from "../../components/CatalogModal/CatalogModal";
 import * as catalogsAPI from '../../utilities/catalogs-api';
+import TopHeader from "../../components/TopHeader/TopHeaader";
 
 
 export default function HomePage() {
@@ -29,8 +30,9 @@ export default function HomePage() {
   
   return (
     <>
-      <h2>CATALOG</h2>
-      <main className="HomePage">
+    <main className="HomePage">
+     <TopHeader />
+     <h2>CATALOG</h2>
         {catalogs.map((catalog, index) => (
           <div
             key={index}

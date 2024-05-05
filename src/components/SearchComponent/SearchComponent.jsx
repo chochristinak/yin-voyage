@@ -1,28 +1,37 @@
-import { useState } from 'react';
-import './SearchComponent.css'
+import { useState } from "react";
+import "./SearchComponent.css";
+import DatePicker from "../../components/DatePicker/DatePicker";
 
 export default function SearchComponent({ retreats }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dateTerm, setDateTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleChange = event => {
+  const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit =  event => {
-    event.preventDefault(); 
+  const handleDateChange = (event) => {
+    setDateTerm(event.target.value);
+  };
 
-    if (searchTerm) {
-      const results = retreats.filter(retreat =>
-        retreat.location.toLowerCase().includes(searchTerm.toLowerCase())
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (searchTerm || dateTerm) {
+      const results = retreats.filter(
+        (retreat) =>
+          retreat.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          retreat.date.includes(dateTerm)
       );
       setSearchResults(results);
     } else {
-      setSearchResults()
+      setSearchResults([]);
+    }
   };
 
-  const handleKeyDown = event => {
-    if (event.key === 'Enter') {
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
       handleSubmit(event);
     }
   };
@@ -30,12 +39,18 @@ export default function SearchComponent({ retreats }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input className="search-bar"
+        <input
+          className="search-bar-location"
           type="text"
           value={searchTerm}
-          onChange={handleChange}
+          onChange={handleSearchChange}
           onKeyDown={handleKeyDown}
           placeholder="Search by location"
+        />
+        <DatePicker
+          className="search-bar-date"
+          selected={dateTerm}
+          onChange={handleDateChange}
         />
         <button type="submit">Search</button>
       </form>
@@ -44,8 +59,9 @@ export default function SearchComponent({ retreats }) {
         <div>
           {searchResults.map((result, index) => (
             <div key={index} className="search-bar-results">
-              <h3>{result.name}</h3>
+              <h3>{result.title}</h3>
               <p>{result.location}</p>
+              <p>{result.date}</p>
               {/* // link to see retreat locations // */}
             </div>
           ))}
@@ -53,5 +69,4 @@ export default function SearchComponent({ retreats }) {
       )}
     </div>
   );
-}
 }

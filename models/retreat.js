@@ -24,7 +24,7 @@ const retreatSchema = new Schema(
     availableSpots: {
       type: Number,
     },
-    retreatType: {
+    catalog: {
       type: Schema.Types.ObjectId,
       ref: "Catalog",
     },
