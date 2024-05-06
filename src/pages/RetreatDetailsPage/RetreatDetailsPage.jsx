@@ -44,7 +44,7 @@ export default function RetreatDetailsPage() {
           <div className="retreat-info">
             <RetreatDetailCard retreat={retreat} />
             <Button onClick={() => setIsModalOpen(true)}>
-              Reserve Your Spot
+              Reserve A Spot
             </Button>
           </div>
         </div>

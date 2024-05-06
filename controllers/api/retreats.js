@@ -3,24 +3,22 @@ const Review = require("../../models/review");
 const User = require("../../models/user");
 // const Booking = require("../models/booking");
 
-  (module.exports = {
-    getRetreatsByCatalog,
-    getById,
-    bookSpot,
-    showAll,
-    createReview,
-    showReview,
-    deleteReview,
-    editReview,
-    updateReview,
-    addToWishList,
-  });
+module.exports = {
+  getRetreatsByCatalog,
+  getById,
+  bookSpot,
+  showAll,
+  createReview,
+  showReview,
+  deleteReview,
+  editReview,
+  updateReview,
+  addToWishList,
+};
 
 async function showAll(req, res) {
-  console.log("hello");
   try {
     const retreats = await Retreat.find({});
-    console.log(retreats);
     res.json(retreats);
   } catch (error) {
     return res.status(500).send(error.message);
@@ -36,10 +34,9 @@ async function getRetreatsByCatalog(req, res) {
   res.json(retreats);
 }
 
-
 async function getById(req, res) {
   try {
-    const retreat = await Retreat.findById(req.params.id).populate('reviews');
+    const retreat = await Retreat.findById(req.params.id).populate("reviews");
     if (retreat) {
       return res.json(retreat);
     }
@@ -48,7 +45,6 @@ async function getById(req, res) {
     return res.status(500).send(error.message);
   }
 }
-
 
 async function bookSpot(req, res) {
   try {
@@ -66,7 +62,6 @@ async function bookSpot(req, res) {
   }
 }
 
-
 async function editReview(req, res) {
   try {
     const review = await Review.findOne({
@@ -79,23 +74,15 @@ async function editReview(req, res) {
   }
 }
 
-
 async function updateReview(req, res) {
-  const reviewId = { _id: req.params.reviewId }
-  console.log(req.body)
-  const updated = {content: req.body.updatedReview.content, rating: req.body.updatedReview.rating}
+  const reviewId = { _id: req.params.reviewId };
+  console.log(req.body);
+  const updated = {
+    content: req.body.updatedReview.content,
+    rating: req.body.updatedReview.rating,
+  };
   try {
-    // Find the review in the Review collection
-    const review = await Review.findOneAndUpdate(
-      reviewId, 
-      updated
-    );
-
-    // Update the review's content
-    // if (review) {
-    //   review.content = req.body.content;
-    //   await review.save();
-    // }
+    const review = await Review.findOneAndUpdate(reviewId, updated);
     return res.json(review);
   } catch (err) {
     console.log(err);
@@ -103,24 +90,20 @@ async function updateReview(req, res) {
   }
 }
 
-
 async function deleteReview(req, res) {
-  console.log(req.params.retreatId)
-  console.log(req.params.reviewId)
-  console.log(req.user._id)
+  console.log(req.params.retreatId);
+  console.log(req.params.reviewId);
+  console.log(req.user._id);
 
-  const retreat = await Retreat.findById(req.params.retreatId
-  );
-  const review = await Review.findOneAndDelete(req.params.reviewId
-  );
-  console.log(retreat)
+  const retreat = await Retreat.findById(req.params.retreatId);
+  const review = await Review.findOneAndDelete(req.params.reviewId);
+  console.log(retreat);
   if (!retreat) return res.redirect("/retreats");
-  console.log('deleting retreat')
+  console.log("deleting retreat");
   retreat.reviews.remove(req.params.reviewId);
   await retreat.save();
   res.json(retreat);
 }
-
 
 async function createReview(req, res) {
   // console.log(req.params);
@@ -128,11 +111,11 @@ async function createReview(req, res) {
   try {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
-    req.body.content = req.body.newReview.content
-    req.body.rating = req.body.newReview.rating
+    req.body.content = req.body.newReview.content;
+    req.body.rating = req.body.newReview.rating;
     // console.log(req.body);
     // console.log("hello");
-    const retreat = await Retreat.findById(req.params.id)
+    const retreat = await Retreat.findById(req.params.id);
     const newReview = await Review.create(req.body);
     retreat.reviews.push(newReview._id);
     await retreat.save();
@@ -144,16 +127,15 @@ async function createReview(req, res) {
 }
 
 async function showReview(req, res) {
+  console.log(req.body);
+  console.log(req.params);
 
-  console.log(req.body)
-  console.log(req.params)
-  
   try {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
 
-    const review = await Review.find({})
-   
+    const review = await Review.find({});
+
     res.json(review);
   } catch (err) {
     console.log(err);
@@ -178,8 +160,8 @@ async function addToWishList(req, res) {
   } catch (err) {
     console.log(err);
     res.status(500).send({
-        message: "An error occurred while adding to wishlist.",
-        error: err,
-      });
+      message: "An error occurred while adding to wishlist.",
+      error: err,
+    });
   }
 }

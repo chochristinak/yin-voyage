@@ -6,7 +6,12 @@ module.exports = {
   createBooking,
   bookRetreat,
   index,
+  getBookingWithRetreatDetails
 };
+
+async function getBookingWithRetreatDetails(req, res){
+  
+}
 
 async function index(req, res) {
   try {

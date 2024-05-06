@@ -26,6 +26,10 @@ const bookingSchema = new Schema({
     ref: 'User',
     required: true
   },
+  retreat: {
+    type: Schema.Types.ObjectId,
+    ref: 'Retreat',
+  },
   retreatListItems: [retreatListItemSchema],
   isPaid: { type: Boolean, default: false } 
 }, {

@@ -18,10 +18,13 @@ async function showAllCatalogs(req, res) {
 
 
 async function showRetreatsInCatalog(req, res) {
+  console.log(req.params.catalogId)
   try {
-    const catalog = await Catalog.findById({}).populate('retreats');
-    const retreats = 
-    res.json(retreats);
+    const catalog = await Catalog.findById({})
+    const retreatsInCatalog = await Retreat.find({
+      '_.id': {$in: catalog.retreats}
+    })
+    res.json(retreatsInCatalog)
   } catch (error) {
     return res.status(500).send(error.message);
   }

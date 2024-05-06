@@ -25,7 +25,7 @@ export function submitRequest() {
   // Updates the order's (cart's) isPaid property to true
   export function addRetreat(retreatId, newBooking) {
     console.log(retreatId, newBooking)
-    return sendRequest(`${BASE_URL}/new`, 'POST', {retreatId, newBooking});
+    return sendRequest(`${BASE_URL}/${retreatId}`, 'POST', {newBooking});
   }
   
   

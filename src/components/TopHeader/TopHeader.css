@@ -1,11 +1,8 @@
-.Top-div .search-component {
-    position: static;
-    padding: 20px;
-    margin-top: 50px !important;
-}
 
-.Top-div {
-    position: relative;
+
+ 
+  .Top-div {
+    position: static;
     background-image: url(https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8);
     height: 400px;
     width: 100%;
@@ -17,4 +14,23 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
+  }
+  
+  .box-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center; 
+    color: white;
+  }
+  
+ 
+  h4, p {
+    margin: 0;
+  }
+  
+
+ 
+  

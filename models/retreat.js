@@ -38,6 +38,9 @@ const retreatSchema = new Schema(
         ref: "Review",
       },
     ],
+    posterPath: { 
+      type: String,
+    },
   },
   {
     timestamps: true,

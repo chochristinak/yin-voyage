@@ -1,8 +1,10 @@
-import {useState} from 'react';
+import React, { useState } from 'react';
+import { Card, Button, Form } from 'react-bootstrap';
 
 export default function ReviewCard({ review, onEdit, onDelete, index }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(review.content);
+  const [rating, setRating] = useState(review.rating);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -10,32 +12,56 @@ export default function ReviewCard({ review, onEdit, onDelete, index }) {
 
   const handleSave = () => {
     setIsEditing(false);
-    onEdit(index, editText);
+    onEdit(index, editText, rating);
   };
-  
 
   return (
-    <div className="review-card">
-      <div className="review">
-        <h3>{review.user.name}</h3>
+    <Card className="mb-3">
+      <Card.Body>
+        <Card.Title>{review.user.name}</Card.Title>
         {isEditing ? (
-          <input
-            name="content"
-            type="text"
-            value={editText}
-            onChange={(e) => setEditText(e.target.value)}
-          />
+          <>
+            <Form.Control
+              name="content"
+              type="text"
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+              className="mb-2"
+            />
+            <Form.Control
+              name="rating"
+              type="number"
+              min="1"
+              max="5"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+              className="mb-2"
+            />
+          </>
         ) : (
-          <p>{review.content}</p>
+          <Card.Text>{review.content}</Card.Text>
         )}
-        <p>Rating: {"⭐".repeat(review.rating)}</p>
         {isEditing ? (
-          <button onClick={handleSave}>Save</button>
+          <div className="btn-group">
+            <Button variant="primary" onClick={handleSave}>
+              Save
+            </Button>
+            <Button variant="secondary" onClick={() => setIsEditing(false)}>
+              Cancel
+            </Button>
+          </div>
         ) : (
-          <button onClick={handleEdit}>Edit</button>
+          <div className="btn-group">
+            <Button variant="info" onClick={handleEdit}>
+              Edit
+            </Button>
+            <Button variant="danger" onClick={() => onDelete(index)}>
+              Delete
+            </Button>
+          </div>
         )}
-        <button onClick={() => onDelete(index)}>Delete</button>
-      </div>
-    </div>
+        <p className="card-text">Rating: {"⭐".repeat(review.rating)}</p>
+      </Card.Body>
+    </Card>
   );
 }

@@ -13,8 +13,8 @@ export default function RetreatListItem({ retreat }) {
   };
 
   return (
-    <Card className="RetreatsItem-wrapper">
-      <Row className="no-gutters">
+    <Card className="RetreatsItem-wrapper m-0">
+      <Row className="row g-3">
         <Col md={4}>
           <Image
             src={`https://picsum.photos/id/${randomImageNumber}/400/?`}

@@ -1,3 +1,23 @@
+button*, 
+div.button-group,
+button.btn.btn-primary,
+button.btn.btn-primary:focus,
+button.btn.btn-primary:hover,
+button.btn.btn-primary:active,
+button.btn.btn-primary:visited {
+    font-family: Futura-pt;
+    width: 10vw;
+    background-color: #f2f2f2;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: calc(.5rem + .2vh +.5vmin);
+    font-weight: light;
+    color: #000;
+    text-decoration: none !important;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .badge {
     display: inline-block;
     padding: 10px 20px;
@@ -7,9 +27,33 @@
     border-radius: 20px;
 }
 
-
 .reviews-scrollable {
-    max-height: 400px; 
+    max-height: 400px;
     overflow-y: auto;
+}
+.reviews-scrollable {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
   }
   
+
+.reviews {
+    flex: 1;
+}
+
+
+/* .modal {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+} */

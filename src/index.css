@@ -26,17 +26,17 @@ body {
 body {
   margin: 0;
   height: 100%;
-  overflow-x: hidden;
   overflow-y: visible;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 60px;
+  padding-top: 30px; 
   border-left: 10px solid var(--primary-color);
   border-right: 10px solid var(--primary-color);
 }
+
 
 ul {
   list-style: none;
@@ -54,15 +54,6 @@ h6 {
 a,
 a:hover {
   color: var(--text-color);
-}
-
-p {
-  word-break: break-word;
-  hyphens: auto;
-}
-
-.ovhidden {
-  overflow: hidden;
 }
 
 .text_2,
@@ -93,4 +84,58 @@ code {
 
 .color_sec {
   color: var(--secondary-color);
+}
+
+button *,
+button.btn.btn-primary,
+button.btn.btn-info,
+button.btn.btn-primary:focus,
+button.btn.btn-primary:hover,
+button.btn.btn-primary:active,
+button.btn.btn-primary:visited {
+    font-family: Futura-pt;
+    width: 10vw;
+    background-color: #f2f2f2;
+    border: 1px solid #000 !important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: calc(.5rem + .2vh +.5vmin);
+    font-weight: light;
+    color: #000;
+    text-decoration: none !important;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+button.btn.btn-danger{
+  font-family: Futura-pt;
+  width: 5vw;
+  height: 5vh;
+  background-color: #f5d7f7;
+  border: 1px solid #000 !important;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: calc(.5rem + .2vh +.5vmin);
+  font-weight: light;
+  color: #000000;
+  text-decoration: none !important;
+  overflow: hidden;
+  white-space: nowrap;
+  align-content: center;
+  padding-top: 1px;
+}
+button.btn.btn-info{
+  font-family: Futura-pt;
+  width: 5vw;
+  height: 5vh;
+  background-color: #d0e5f1;
+  border: 1px solid #000 !important;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: calc(.5rem + .2vh +.5vmin);
+  font-weight: light;
+  color: #000000;
+  text-decoration: none !important;
+  overflow: hidden;
+  white-space: nowrap;
+  align-content: center;
+  padding-top: 1px;
+
 }

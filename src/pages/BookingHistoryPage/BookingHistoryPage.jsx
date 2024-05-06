@@ -16,11 +16,11 @@ export default function BookingHistoryPage() {
   getBookings();
 },[])
 
-async function handleEditReview(){}
-async function handleUpdateReview(){}
-async function handleDeleteReview(){}
 
-  
+// async function getBookingWithRetreatDetails() {
+//   const booking = await bookingsAPI.getBookingWithRetreatDetails
+// }
+
   return (
     <>
       <h1>BookingHistoryPage</h1>

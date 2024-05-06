@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Autosuggest from 'react-autosuggest';
 
-export default function AutosuggestSearchBar({ suggestions }) {
+export default function AutoSuggest({ suggestions }) {
   const [value, setValue] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
 
   const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();

@@ -11,6 +11,7 @@ const Review = require('./models/review');
   {
     name: "LUXURY",
     retreatType: "RESORT AND SPA YOGA RETREATS",
+    description: "A delightful collection of luxury yoga retreats that combine the serenity of yoga practice with the indulgence of resort and spa amenities. These retreats promise to leave you feeling pampered, rejuvenated, and deeply connected to your mind, body, and spirit.",
     posterPath:
       "https://images.unsplash.com/photo-1444312645910-ffa973656eba?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHlpbiUyMHlvZ2F8ZW58MHx8MHx8fDA%3D",
   },

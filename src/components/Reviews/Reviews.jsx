@@ -1,41 +1,40 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Card, Form, Button } from "react-bootstrap"; // Import React Bootstrap components
 import * as retreatsAPI from "../../utilities/retreats-api";
 import "./Reviews.css";
 import ReviewCard from "../ReviewCard/ReviewCard";
 
-export default function Reviews({retreat}) {
+export default function Reviews({ retreat }) {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
 
   async function getReviews() {
     const reviews = await retreatsAPI.getAllReviews();
-    setReviews(reviews)
-    console.log(reviews)
-  } 
+    setReviews(reviews);
+    console.log(reviews);
+  }
 
-  useEffect(function() {
+  useEffect(function () {
     getReviews();
-  },[])
+  }, []);
 
- 
-  /*--- Event Handlers ---*/
   async function handleReviewSubmission(event) {
     event.preventDefault();
     const newReview = {
       content: reviewText,
       rating: rating,
     };
-    const response = await retreatsAPI.create(retreat._id , newReview);
+    const response = await retreatsAPI.create(retreat._id, newReview);
     setReviewText("");
     setRating(0);
     setReviews([...reviews, response]);
-    console.log(newReview)
+    console.log(newReview);
   }
 
   async function handleEditReview(index, newText) {
     const reviewToEdit = reviews[index];
-    reviewToEdit.content = newText; 
+    reviewToEdit.content = newText;
     const editedReview = await retreatsAPI.updateReview(
       retreat._id,
       reviewToEdit._id,
@@ -50,8 +49,6 @@ export default function Reviews({retreat}) {
     setReviews(updatedReviews);
     getReviews();
   }
-  
-  
 
   async function handleDeleteReview(index) {
     const reviewToDelete = reviews[index];
@@ -61,19 +58,21 @@ export default function Reviews({retreat}) {
     });
     setReviews(updatedReviews);
   }
-    return (
-      <div className="reviews">
-        <h3>Reviews</h3>
-        {reviews.map((review, index) => (
-          <ReviewCard 
-            key={index} 
-            review={review} 
-            onEdit = {handleEditReview} 
-            index = {index}
-            onDelete={() => handleDeleteReview(index)} 
-          />
-        ))}
-      <form className="review-input" onSubmit={handleReviewSubmission}>
+
+  return (
+    <div className="reviews">
+      <h3>Reviews</h3>
+      {reviews.map((review, index) => (
+        <ReviewCard
+          key={index}
+          review={review}
+          onEdit={handleEditReview}
+          index={index}
+          onDelete={() => handleDeleteReview(index)}
+        />
+      ))}
+
+      <Form className="review-input" onSubmit={handleReviewSubmission}>
         <h4>Leave a Review</h4>
         <textarea
           name="content"
@@ -81,6 +80,7 @@ export default function Reviews({retreat}) {
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
+        <br />
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
           return (
@@ -95,8 +95,9 @@ export default function Reviews({retreat}) {
             </label>
           );
         })}
-        <button type="submit">Submit Review</button>
-      </form>
+        <br />
+        <Button type="submit">Submit Review</Button> 
+      </Form>
     </div>
   );
 }
