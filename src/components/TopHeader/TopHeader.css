@@ -27,8 +27,12 @@
   }
   
  
-  h4, p {
-    margin: 0;
+  h4{
+    font-weight:900;
+  }
+  
+  p {
+    font-weight: 700;
   }
   
 

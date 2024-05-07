@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import "./SearchComponent.css";
 import DatePicker from "../../components/DatePicker/DatePicker";
+import * as retreatsAPI from "../../utilities/retreats-api";
+
 
 export default function SearchComponent({ retreats }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [dateTerm, setDateTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  // useEffect(function() {
+  //   async function getRetreats() {
+  //     const retreats = await retreatsAPI.getAll();
+  //     setSearchResults(retreats)
+  //     console.log(retreats)
+  //   } 
+  //   getRetreats();
+  // },[])
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -35,6 +46,7 @@ export default function SearchComponent({ retreats }) {
       handleSubmit(event);
     }
   };
+
 
   return (
     <div>

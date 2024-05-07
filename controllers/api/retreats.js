@@ -36,7 +36,7 @@ async function getRetreatsByCatalog(req, res) {
 
 async function getById(req, res) {
   try {
-    const retreat = await Retreat.findById(req.params.id).populate("reviews");
+    const retreat = await Retreat.findById(req.params.id).populate("reviews").populate('bookings');    
     if (retreat) {
       return res.json(retreat);
     }

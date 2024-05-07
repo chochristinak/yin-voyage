@@ -7,7 +7,7 @@ router.put('/retreat/retreat:id', bookingsCtrl.reserve);
 // POST /api/bookings/
 router.post('/new', bookingsCtrl.createBooking);
 
-router.post('/booking:id', bookingsCtrl.bookRetreat)
+router.post('/:id', bookingsCtrl.bookRetreat)
 
 router.get('/', bookingsCtrl.index)
 

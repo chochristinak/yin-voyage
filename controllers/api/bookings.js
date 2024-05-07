@@ -62,8 +62,11 @@ async function reserve(req, res) {
 async function bookRetreat(req, res) {
   let bookings = [];
   try {
-    const reatreat = await Retreat.findById(req.params.id);
-    bookings.push(retreat);
+    console.log(req.params.id)
+    console.log(req.body)
+    const retreat = await Retreat.findById(req.params.id);
+    retreat.bookings.push(req.body.newBooking);
+    retreat.save()
     return res.json(bookings);
   } catch (error) {
     res.status(500).json({ message: error.message });

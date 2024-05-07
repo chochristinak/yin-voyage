@@ -1,3 +1,4 @@
+
 body {
   display: flex;
   justify-content: center;
@@ -6,6 +7,9 @@ body {
   margin: 0;
   background-color: #f9f9f9;
 }
+.Retreats-list-wrapper {
+  width: 60vw;
+}
 
 .RetreatsItem-wrapper {
   margin-top: 5px;
@@ -13,7 +17,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  width: 150px;
+  width: 60vw;
   height: 175px;
   border-radius: 10px;
   overflow: hidden;
