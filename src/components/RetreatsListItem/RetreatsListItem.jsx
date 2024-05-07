@@ -1,4 +1,4 @@
-import { Card, Row, Col, Image, Button} from "react-bootstrap";
+import { Card, Row, Col, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as retreatsAPI from "../../utilities/retreats-api";
@@ -13,15 +13,15 @@ export default function RetreatListItem({ retreat }) {
 
   return (
     <Card className="RetreatsItem-wrapper m-5">
-      <Row className="row g-2">
-        <Col xs={4}>
+      <Row className="row g-0">
+        <Col xs={4} style={{ position: 'relative', overflow: 'hidden' }}>
           <Image
             src={retreat.posterPath}
             alt="Retreat"
-            fluid
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </Col>
-        <Col xs={3}>
+        <Col xs={8}>
           <Card.Body>
             <Card.Title>{retreat.title}</Card.Title>
             <Card.Text>Location: {retreat.location}</Card.Text>

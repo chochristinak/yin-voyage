@@ -1,22 +1,31 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./SearchComponent.css";
 import DatePicker from "../../components/DatePicker/DatePicker";
-import * as retreatsAPI from "../../utilities/retreats-api";
-
+import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function SearchComponent({ retreats }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [dateTerm, setDateTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
-  // useEffect(function() {
-  //   async function getRetreats() {
-  //     const retreats = await retreatsAPI.getAll();
-  //     setSearchResults(retreats)
-  //     console.log(retreats)
-  //   } 
-  //   getRetreats();
-  // },[])
+
+useEffect(() => {
+  async function getRetreats() {
+    try {
+      if (searchTerm) {
+        const response = await axios.get(`/api/retreats?searchTerm=${searchTerm}`);
+        setSuggestions(response.data);
+      } else {
+        setSuggestions([]);
+      }
+    } catch (error) {
+      console.error('Error fetching retreats:', error);
+    }
+  }
+  getRetreats();
+}, [searchTerm]);
+
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -28,17 +37,8 @@ export default function SearchComponent({ retreats }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (searchTerm || dateTerm) {
-      const results = retreats.filter(
-        (retreat) =>
-          retreat.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          retreat.date.includes(dateTerm)
-      );
-      setSearchResults(results);
-    } else {
-      setSearchResults([]);
-    }
+    // Perform search based on search term and date term
+    // This can be implemented based on your requirements
   };
 
   const handleKeyDown = (event) => {
@@ -46,7 +46,6 @@ export default function SearchComponent({ retreats }) {
       handleSubmit(event);
     }
   };
-
 
   return (
     <div>
@@ -57,7 +56,7 @@ export default function SearchComponent({ retreats }) {
           value={searchTerm}
           onChange={handleSearchChange}
           onKeyDown={handleKeyDown}
-          placeholder="Look for suggestions..."
+          placeholder="Try hatha or detox..."
         />
         <DatePicker
           className="search-bar-date"
@@ -67,14 +66,15 @@ export default function SearchComponent({ retreats }) {
         <button type="submit">Search</button>
       </form>
 
-      {searchResults.length > 0 && (
+      {suggestions.length > 0 && (
         <div>
-          {searchResults.map((result, index) => (
+          {suggestions.map((suggestion, index) => (
             <div key={index} className="search-bar-results">
-              <h3>{result.title}</h3>
-              <p>{result.location}</p>
-              <p>{result.date}</p>
-              {/* // link to see retreat locations // */}
+              <Link to={`/retreats/${suggestion.id}`}>
+                <h3>{suggestion.title}</h3>
+              </Link>
+              <p>{suggestion.location}</p>
+              {/* Add more details as needed */}
             </div>
           ))}
         </div>

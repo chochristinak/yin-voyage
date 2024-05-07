@@ -1,11 +1,12 @@
-import "./Catalog.css";
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import './Catalog.css';
 
-export default function Catalog({ catalog, retreats }) {
-  
+export default function Catalog({ catalog }) {
   return (
-    <div className="catalog-container" style={{ width: "60vw" }}>
-      <div className="row">
-        <div className="col-sm-10 col-md-6 col-lg-4">
+    <div className="catalog-container">
+      <Row>
+        <Col sm={10} md={6} lg={4}>
           <div
             className="catalog-card"
             style={{ backgroundImage: `url(${catalog.posterPath})` }}
@@ -14,8 +15,9 @@ export default function Catalog({ catalog, retreats }) {
               <p>{catalog.name}</p>
             </div>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 }
+

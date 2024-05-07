@@ -14,15 +14,21 @@ body {
 .RetreatsItem-wrapper {
   margin-top: 5px;
   margin-bottom: 5px;
-  background-size: cover;
-  background-position: center;
   position: relative;
   width: 60vw;
-  height: 175px;
+  height: 40vw;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
+.img-fluid {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; 
+  border-radius: 10px;
+}
+
 
 .Retreat-card-content {
   justify-items: center;
@@ -30,7 +36,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 5px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
   border-radius: 0 0 10px 10px;

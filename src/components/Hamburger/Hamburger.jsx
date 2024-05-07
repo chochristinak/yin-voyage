@@ -25,9 +25,7 @@ const Burger = styled.div`
 export default function HamburgerMenu({ isOpen }) {
   return (
     <Hamburger>
-      <Burger className="burger burger1" style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0)" }} />
-      <Burger className="burger burger2" style={{ transform: isOpen ? "translateX(100%)" : "translateX(0)", opacity: isOpen ? 0 : 1 }} />
-      <Burger className="burger burger3" style={{ transform: isOpen ? "rotate(-45deg)" : "rotate(0)" }} />
+
     </Hamburger>
   );
 }

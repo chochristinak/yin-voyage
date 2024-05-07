@@ -35,7 +35,9 @@ async function getRetreatsByCatalog(req, res) {
 
 async function getById(req, res) {
   try {
-    const retreat = await Retreat.findById(req.params.id).populate("reviews").populate('bookings');    
+    const retreat = await Retreat.findById(req.params.id)
+      .populate("reviews")
+      .populate("bookings");
     if (retreat) {
       return res.json(retreat);
     }
@@ -67,6 +69,9 @@ async function editReview(req, res) {
       _id: req.params.reviewId,
       user: req.user._id,
     });
+    if (!review) {
+      return res.status(404).json({ message: "Review not found" });
+    }
     return res.json({ review });
   } catch (err) {
     res.status(400).json(err);
@@ -74,14 +79,18 @@ async function editReview(req, res) {
 }
 
 async function updateReview(req, res) {
-  const reviewId = { _id: req.params.reviewId };
+  const reviewId = req.params.reviewId;
+  const userId = req.user._id;
   console.log(req.body);
   const updated = {
     content: req.body.updatedReview.content,
     rating: req.body.updatedReview.rating,
   };
   try {
-    const review = await Review.findOneAndUpdate(reviewId, updated);
+    const review = await Review.findOneAndUpdate({ _id: reviewId, user: userId }, updated);
+    if (!review) {
+      return res.status(404).json({ message: "Unauthorized" });
+    }
     return res.json(review);
   } catch (err) {
     console.log(err);
@@ -89,20 +98,34 @@ async function updateReview(req, res) {
   }
 }
 
-async function deleteReview(req, res) {
-  console.log(req.params.retreatId);
-  console.log(req.params.reviewId);
-  console.log(req.user._id);
 
-  const retreat = await Retreat.findById(req.params.retreatId);
-  const review = await Review.findOneAndDelete(req.params.reviewId);
-  console.log(retreat);
-  if (!retreat) return res.redirect("/retreats");
-  console.log("deleting retreat");
-  retreat.reviews.remove(req.params.reviewId);
-  await retreat.save();
-  res.json(retreat);
+async function deleteReview(req, res) {
+  const reviewId = req.params.reviewId;
+  const userId = req.user._id;
+
+  try {
+    const review = await Review.findOneAndDelete({ _id: reviewId, user: userId });
+    if (!review) {
+      return res.status(404).json({ message: "Review not found or unauthorized" });
+    }
+
+    console.log(req.params.retreatId);
+    console.log(req.params.reviewId);
+    console.log(req.user._id);
+    const retreat = await Retreat.findById(req.params.retreatId);
+    console.log(retreat);
+    if (!retreat) return res.redirect("/retreats");
+    console.log("deleting retreat");
+    retreat.reviews.remove(req.params.reviewId);
+    await retreat.save();
+
+    res.json(retreat);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
 }
+
 
 async function createReview(req, res) {
   // console.log(req.params);
