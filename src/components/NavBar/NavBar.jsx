@@ -19,6 +19,7 @@ export default function NavBar({ user, setUser }) {
         <div className="hamburger" onClick={() => setShowNav(!showNav)}>&#9776;</div>
         {showNav && (
           <nav className="navbar">
+            <span className="welcome">Hi, {user.name}</span>
             <Link to="/catalogs">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/retreats">All Retreats</Link>

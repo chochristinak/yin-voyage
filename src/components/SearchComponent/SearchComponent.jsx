@@ -57,7 +57,7 @@ export default function SearchComponent({ retreats }) {
           value={searchTerm}
           onChange={handleSearchChange}
           onKeyDown={handleKeyDown}
-          placeholder="Search by location"
+          placeholder="Look for suggestions..."
         />
         <DatePicker
           className="search-bar-date"

@@ -13,6 +13,8 @@ router.get(':catalogName/', retreatsCtrl.getRetreatsByCatalog)
 
 router.put('/:id/availability', retreatsCtrl.bookSpot)
 
+router.get('/:retreatsId/bookings/:bookingId', retreatsCtrl.getById)
+
 // POST /retreats/:id/reviews (create new review for retreat)
 router.post('/:id/reviews', ensureLoggedIn, retreatsCtrl.createReview)
 

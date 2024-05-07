@@ -4,7 +4,6 @@ import { useState } from "react";
 import * as retreatsAPI from "../../utilities/retreats-api";
 
 export default function RetreatListItem({ retreat }) {
-  const randomImageNumber = Math.floor(Math.random() * 1000);
   const [liked, setLiked] = useState(false);
 
   const handleLike = () => {

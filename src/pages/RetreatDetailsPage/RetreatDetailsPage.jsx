@@ -33,7 +33,7 @@ export default function RetreatDetailsPage() {
     const bookingConfirmation = await bookingsAPI.addRetreat(retreat._id, retreat);
     setConfirmationMessage(
       `Booking confirmed for ${retreat.title}! 
-       Total price: ${retreat.price}. 
+       Total price: ${retreat.price}.  
        Start date: ${retreat.startDate.toLocaleString()}`)
   }
 
