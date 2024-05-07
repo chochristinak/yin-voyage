@@ -12,7 +12,7 @@ export async function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
 
-export async function getRetreatsByCatalog(id, retreats) {
-    return sendRequest(`${BASE_URL}/${id}/retreats`, 'GET', {retreats})
+export async function getRetreatsByCatalog(catalogId) {
+    return sendRequest(`${BASE_URL}/${catalogId}/retreats`, 'GET')
   }
 

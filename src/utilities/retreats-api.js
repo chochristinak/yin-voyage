@@ -1,4 +1,4 @@
-import sendRequest from "./send-request";
+import sendRequest from './send-request';
 const BASE_URL = '/api/retreats';
 
 export async function getAll() {
@@ -32,6 +32,3 @@ export async function getAllReviews(retreatId) {
   return sendRequest(`${BASE_URL}/${retreatId}/reviews/all`)
 }
 
-export async function addToWishList(retreatId, wishlistItem){
-   return sendRequest(`${BASE_URL}/${retreatId}/wishlist`, 'POST', {wishlistItem})
-}

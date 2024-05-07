@@ -29,6 +29,8 @@ button.btn.btn-primary:visited {
     color: black;
     border: 1px solid #ddd;
     border-radius: 20px;
+    font-size: larger;
+
 }
 
 .reviews-scrollable {

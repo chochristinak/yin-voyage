@@ -1,6 +1,7 @@
 import "./Catalog.css";
 
-export default function Catalog({ catalog }) {
+export default function Catalog({ catalog, retreats }) {
+  
   return (
     <div className="catalog-container" style={{ width: "60vw" }}>
       <div className="row">

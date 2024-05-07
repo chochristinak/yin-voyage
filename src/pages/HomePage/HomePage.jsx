@@ -1,38 +1,42 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Catalog from "../../components/Catalog/Catalog";
 import "./HomePage.css";
 import CatalogModal from "../../components/CatalogModal/CatalogModal";
 import * as catalogsAPI from '../../utilities/catalogs-api';
 import TopHeader from "../../components/TopHeader/TopHeaader";
 
-
 export default function HomePage() {
-  const [catalogs, setCatalogs] = useState([])
-  const [selectedCatalog, setSelectedCatalog] = useState([]);
-  const handleCatalogClick = (catalog) => {
+  const [catalogs, setCatalogs] = useState([]);
+  const [selectedCatalog, setSelectedCatalog] = useState(null);
+  const [selectedCatalogRetreats, setSelectedCatalogRetreats] = useState([]);
+
+  useEffect(() => {
+    async function getCatalogs() {
+      const catalogs = await catalogsAPI.getAll();
+      setCatalogs(catalogs);
+    } 
+    getCatalogs();
+  }, []);
+
+  // Function to handle catalog click
+  const handleCatalogClick = async (catalog) => {
     setSelectedCatalog(catalog);
+    const retreats = await catalogsAPI.getRetreatsByCatalog(catalog._id);
+    setSelectedCatalogRetreats(retreats);
   };
+
   // Function to close modal
   const handleCloseModal = () => {
     setSelectedCatalog(null);
+    setSelectedCatalogRetreats([]);
   };
 
-  useEffect(function() {
-    async function getCatalogs() {
-      const catalogs = await catalogsAPI.getAll();
-      console.log(catalogs)
-      setCatalogs(catalogs)
-    } 
-    getCatalogs();
-  },[])
-  console.log(catalogs)
-
-  
   return (
     <>
-    <main className="HomePage">
-     <TopHeader />
-     <h2>CATALOGS</h2>
+      <main className="HomePage">
+        <TopHeader />
+        <h2>CATALOGS</h2>
         {catalogs.map((catalog, index) => (
           <div
             key={index}
@@ -45,7 +49,9 @@ export default function HomePage() {
         {selectedCatalog && (
           <CatalogModal 
             catalog={selectedCatalog} 
-            onClose={handleCloseModal} />
+            retreats={selectedCatalogRetreats} 
+            onClose={handleCloseModal} 
+          />
         )}
       </main>
     </>

@@ -8,6 +8,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.get('/', catalogsCtrl.showAllCatalogs);
 
-router.get('/:id/retreats', catalogsCtrl.showRetreatsInCatalog)
+router.get('/:catalogId/retreats', catalogsCtrl.showRetreatsInCatalog)
 
 module.exports = router;

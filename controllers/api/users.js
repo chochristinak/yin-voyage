@@ -1,11 +1,13 @@
 const jwt = require("jsonwebtoken");
 const User = require("../../models/user");
 const bcrypt = require("bcrypt");
+const Retreat = require("../../models/retreat");
 
 module.exports = {
   create,
   login, 
-  checkToken
+  checkToken,
+  wishlist
 };
 
 async function login(req, res) {
@@ -46,3 +48,30 @@ function checkToken(req, res) {
 function createJWT(user) {
   return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
 }
+
+
+async function wishlist(req, res) {
+  try {
+    const retreat = await Retreat.findById(req.params.id);
+    const user = await User.findById(req.user._id);
+    if (!user.wishlist) {
+      user.wishlist = [];
+    }
+    if (!user.wishlist.includes(retreat._id)) {
+      user.wishlist.push(retreat._id);
+      await user.save();
+    }
+    res.json({
+      message: "Successfully added to wishlist.",
+      wishlist: user.wishlist,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      message: "An error occurred while adding to wishlist.",
+      error: err,
+    });
+  }
+}
+
+

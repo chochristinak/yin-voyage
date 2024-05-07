@@ -113,7 +113,7 @@ button.btn.btn-danger{
   font-family: Futura-pt;
   width: 5vw;
   height: 5vh;
-  background-color: #f5d7f7;
+  background-color: #898c8b;
   border: 1px solid #000 !important;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   font-size: calc(.5rem + .2vh +.5vmin);
@@ -129,7 +129,7 @@ button.btn.btn-info{
   font-family: Futura-pt;
   width: 5vw;
   height: 5vh;
-  background-color: #d0e5f1;
+  background-color: #c8c9c4;
   border: 1px solid #000 !important;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   font-size: calc(.5rem + .2vh +.5vmin);

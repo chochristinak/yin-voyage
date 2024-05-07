@@ -13,7 +13,6 @@ module.exports = {
   deleteReview,
   editReview,
   updateReview,
-  addToWishList,
 };
 
 async function showAll(req, res) {
@@ -127,8 +126,8 @@ async function createReview(req, res) {
 }
 
 async function showReview(req, res) {
-  console.log(req.body);
-  console.log(req.params);
+  // console.log(req.body);
+  // console.log(req.params);
 
   try {
     req.body.user = req.user._id;
@@ -140,28 +139,5 @@ async function showReview(req, res) {
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
-  }
-}
-
-async function addToWishList(req, res) {
-  try {
-    const retreat = await Retreat.findById(req.params.id);
-    const user = await User.findById(req.user._id);
-
-    if (!user.wishlist.includes(retreat._id)) {
-      user.wishlist.push(retreat._id);
-      await user.save();
-    }
-
-    res.json({
-      message: "Successfully added to wishlist.",
-      wishlist: user.wishlist,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).send({
-      message: "An error occurred while adding to wishlist.",
-      error: err,
-    });
   }
 }

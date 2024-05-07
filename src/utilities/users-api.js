@@ -13,3 +13,7 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
 
+export function addToWishList(userId, retreatId){
+  return sendRequest(`${BASE_URL}/${userId}wishlist`, 'POST', userId, retreatId);
+}
+

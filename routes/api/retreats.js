@@ -30,10 +30,5 @@ router.get('/:retreatId/reviews/:reviewId', ensureLoggedIn, retreatsCtrl.editRev
 router.put('/:retreatId/reviews/:reviewId', ensureLoggedIn, retreatsCtrl.updateReview)
 
 
-router.post('/:id/wishlist', ensureLoggedIn, retreatsCtrl.addToWishList)
-
-
-
-
 module.exports = router;
 
