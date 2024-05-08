@@ -1,11 +1,58 @@
-.welcome-message {
-  margin-left: auto; 
-  font-weight: 400;
-}
-.navbar {
-  border-bottom: 1px solid #ccc; 
-}
-.nav-separator {
-  margin: 5px 5px; 
+span.welcome-badge.badge.bg-primary {
+  background-color: #fff !important; 
+  color: #000!important; 
+  border: 1px solid #ccc !important; 
+  padding: 5px 10px;
+  font-weight: 200 !important;
+  margin-left: 10px; 
+  border-radius: 1px !important;
 }
 
+
+.navbar {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 80vw;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+
+.brand-logo img {
+  height: auto;
+  max-width: 100%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.nav-link {
+  white-space: nowrap; 
+}
+
+.nav-link,
+.nav-separator {
+  display: inline-block; 
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .nav-link {
+    margin-right: 0; 
+    margin-bottom: 10px; 
+  }
+}

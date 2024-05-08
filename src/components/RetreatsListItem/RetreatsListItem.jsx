@@ -6,10 +6,15 @@ import * as retreatsAPI from "../../utilities/retreats-api";
 export default function RetreatListItem({ retreat }) {
   const [liked, setLiked] = useState(false);
 
-  const handleLike = () => {
+  const handleLike = async () => {
     setLiked(!liked);
-    addToWishlist(retreat._id);
+    try {
+      await addToWishList(userId, retreat._id);
+    } catch (error) {
+      console.error('Error adding to wishlist:', error);
+    }
   };
+
 
   return (
     <Card className="RetreatsItem-wrapper m-5">

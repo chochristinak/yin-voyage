@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Button, Form } from 'react-bootstrap';
 
-export default function ReviewCard({ review, onEdit, onDelete, index }) {
+export default function ReviewCard({ review, onEdit, onDelete, index, user }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(review.content);
   const [rating, setRating] = useState(review.rating);
@@ -18,7 +18,12 @@ export default function ReviewCard({ review, onEdit, onDelete, index }) {
   return (
     <Card className="mb-3">
       <Card.Body>
-        <Card.Title>{review.user.name}</Card.Title>
+        <div className="d-flex justify-content-between align-items-center">
+          <Card.Title>Review by: </Card.Title>
+          <div>
+            <p className="card-text">Rating: {"⭐".repeat(review.rating)}</p>
+          </div>
+        </div>
         {isEditing ? (
           <>
             <Form.Control
@@ -60,7 +65,6 @@ export default function ReviewCard({ review, onEdit, onDelete, index }) {
             </Button>
           </div>
         )}
-        <p className="card-text">Rating: {"⭐".repeat(review.rating)}</p>
       </Card.Body>
     </Card>
   );

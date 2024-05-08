@@ -1,0 +1,15 @@
+.auth-page {
+    display: flex! important;
+    flex-direction: row !important;
+    align-items: center;
+}
+
+.auth-page-divider {
+    border-right: 2px solid #ccc; 
+    margin: 0 2rem; 
+}
+
+.auth-page-heading {
+    font-weight: 900;
+    margin-right: 2rem; 
+}

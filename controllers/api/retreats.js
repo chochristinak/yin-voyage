@@ -81,22 +81,29 @@ async function editReview(req, res) {
 async function updateReview(req, res) {
   const reviewId = req.params.reviewId;
   const userId = req.user._id;
-  console.log(req.body);
-  const updated = {
-    content: req.body.updatedReview.content,
-    rating: req.body.updatedReview.rating,
-  };
+  const { content, rating } = req.body.updatedReview;
+
   try {
-    const review = await Review.findOneAndUpdate({ _id: reviewId, user: userId }, updated);
+    const review = await Review.findOne({ _id: reviewId, user: userId });
+
     if (!review) {
-      return res.status(404).json({ message: "Unauthorized" });
+      return res.status(404).json({ message: "Review not found or unauthorized" });
     }
+
+   
+    review.content = content;
+    review.rating = rating;
+    
+  
+    await review.save();
+
     return res.json(review);
   } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 }
+
 
 
 async function deleteReview(req, res) {

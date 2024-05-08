@@ -58,7 +58,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-
+.modal-content {
+    background-color: #fff; /* White background for a clean look */
+    border-radius: 8px; /* Soft rounded corners */
+    border: none; /* No border for a sleek appearance */
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid #e9ecef; 
+    padding: 1rem 1rem; 
+  }
+  
+  .modal-title {
+    color: #5f6368; 
+    font-family: 'Open Sans', sans-serif; 
+  }
+  
+  .modal-body {
+    color: #5f6368; 
+    line-height: 1.5; 
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 0.75rem 1rem; 
+  }
+  
+  
+  .btn-primary {
+    background-color: #88a5af; 
+    border-color: #88a5af;
+    box-shadow: none;
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #729ca0; 
+    border-color: #729ca0; 
+  }
+  
+  
 
 button *,
 button.btn.btn-primary,

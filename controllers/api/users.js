@@ -62,16 +62,15 @@ async function wishlist(req, res) {
       await user.save();
     }
     res.json({
-      message: "Successfully added to wishlist.",
+      message: 'Successfully added to wishlist.',
       wishlist: user.wishlist,
     });
   } catch (err) {
     console.log(err);
     res.status(500).send({
-      message: "An error occurred while adding to wishlist.",
+      message: 'An error occurred while adding to wishlist.',
       error: err,
     });
   }
 }
-
 

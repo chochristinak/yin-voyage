@@ -9,22 +9,21 @@ export default function SearchComponent({ retreats }) {
   const [dateTerm, setDateTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
-
-useEffect(() => {
-  async function getRetreats() {
-    try {
-      if (searchTerm) {
-        const response = await axios.get(`/api/retreats?searchTerm=${searchTerm}`);
-        setSuggestions(response.data);
-      } else {
-        setSuggestions([]);
+  useEffect(() => {
+    async function getRetreats() {
+      try {
+        if (searchTerm) {
+          const response = await axios.get(`/api/retreats?searchTerm=${searchTerm}`);
+          setSuggestions(response.data);
+        } else {
+          setSuggestions([]);
+        }
+      } catch (error) {
+        console.error('Error fetching retreats:', error);
       }
-    } catch (error) {
-      console.error('Error fetching retreats:', error);
     }
-  }
-  getRetreats();
-}, [searchTerm]);
+    getRetreats();
+  }, [searchTerm]);
 
 
   const handleSearchChange = (event) => {
@@ -56,7 +55,7 @@ useEffect(() => {
           value={searchTerm}
           onChange={handleSearchChange}
           onKeyDown={handleKeyDown}
-          placeholder="Try hatha or detox..."
+          placeholder="Try hatha or detox.."
         />
         <DatePicker
           className="search-bar-date"
@@ -67,16 +66,19 @@ useEffect(() => {
       </form>
 
       {suggestions.length > 0 && (
-        <div>
-          {suggestions.map((suggestion, index) => (
-            <div key={index} className="search-bar-results">
-              <Link to={`/retreats/${suggestion.id}`}>
-                <h3>{suggestion.title}</h3>
-              </Link>
-              <p>{suggestion.location}</p>
-              {/* Add more details as needed */}
-            </div>
-          ))}
+        <div className="search-bar-results">
+          <div className="suggestion-box">
+            <ul className="suggestion-list">
+              {suggestions.map((suggestion, index) => (
+                <li key={index} className="suggestion-list-item">
+                  <Link to={`/retreats/${suggestion.id}`} className="suggestion-link">
+                    <span className="suggestion">{suggestion.title}</span>
+                    <span>{suggestion.location}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
