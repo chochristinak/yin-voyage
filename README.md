@@ -78,17 +78,17 @@ Gratitude
 ## :fire: Getting Started
 
 <details open>
-  <summary> *Browse Yoga Retreat Types By Catalog* </summary>
+  <summary> **Browse Yoga Retreat Types By Catalog** </summary>
     Each catalog has a different theme and purpose with a unique collection of yoga retreats.
 </details>
 
 <details open>
-  <summary> Search for Specfic Keywords </summary>
-    *You can use the search bar to find specific retreat-related keywords of interest like "bikram", "vegetarian", "spa", "surf", "meditation" and more.
+  <summary> <u>>Search for Specfic Keywords</u> </summary>
+    You can use the search bar to find specific retreat-related _keywords_ of interest like: "bikram", "vegetarian", "spa", "surf", "meditation" and more.
 </details>
 
 <details open>
-  <summary> Browse All Yoga Retreats </summary>
+  <summary> **Browse All Yoga Retreats** </summary>
    See Detailed information for each retreat including:
     *Dates
     *Pricing
