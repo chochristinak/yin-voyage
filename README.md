@@ -40,23 +40,21 @@ A deeper Apprecial for the Self and the World we live in
 Feeling Empowered
 Gratitude
 
-<>
+
   ## :camera_flash: Screenshots 
 
-   |   Description | Screenshot | 
-   |:-------------:| -----------|
-  <h3 align="center">Homepage</h3> | <img
+  | <h3 align="center">Homepage</h3> | <img
   src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438"
   width="700"
-  /> 
-  <h3 align="center">Retreats List Page</h3> | <img
+  /> |
+  | <h3 align="center">Retreats List Page</h3> | <img
   src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438"
   width="700"
-  /> 
-  <h3 align="center">Deatail & Booking Page</h3> | <img
+  /> |
+  | <h3 align="center">Deatail & Booking Page</h3> | <img
   src="https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-08-at-5.54.16e280afam.png?ssl=1"
   width="700"
-  /> 
+  /> |
 
 
 
@@ -80,8 +78,8 @@ Gratitude
 ## :fire: Getting Started
 
 <details open>
-  <summary> Browse Yoga Retreat Types By Catalog </summary>
-    *Each catalog has a different theme and purpose with a unique collection of yoga retreats.
+  <summary> *Browse Yoga Retreat Types By Catalog* </summary>
+    Each catalog has a different theme and purpose with a unique collection of yoga retreats.
 </details>
 
 <details open>
