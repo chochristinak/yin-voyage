@@ -134,6 +134,6 @@ Gratitude
   5. Payment feature
   6. Loyalty prgram
 
-- [:star:] API integration for a more comprehensive list of global yoga retreats
-- [:star:] Subscription to receive emails for deals and discounts
+- [	:palm_tree:] API integration for a more comprehensive list of global yoga retreats
+- [	:palm_tree:] Subscription to receive emails for deals and discounts
 - [:star:] Test, debug, continuous development.
