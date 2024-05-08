@@ -43,18 +43,21 @@ Gratitude
 
   ## :camera_flash: Screenshots 
 
-  | <h3 align="center">Homepage</h3> | <img
+  <h3 align="center">Homepage</h3>
+  <img
   src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438"
   width="700"
-  /> |
-  | <h3 align="center">Retreats List Page</h3> | <img
+  />
+  <h3 align="center">Retreats List Page</h3>
+  <img
   src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438"
   width="700"
-  /> |
-  | <h3 align="center">Deatail & Booking Page</h3> | <img
+  /> 
+  <h3 align="center">Deatail & Booking Page</h3>
+  <img
   src="https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-08-at-5.54.16e280afam.png?ssl=1"
   width="700"
-  /> |
+  />
 
 
 
@@ -77,23 +80,23 @@ Gratitude
 
 ## :fire: Getting Started
 
-<details open>
+<details>
   <summary>Browse Yoga Retreat Types By Catalog</summary>
     Each catalog has a different theme and purpose with a unique collection of yoga retreats.
 </details>
 
-<details open>
+<details>
   <summary> <u>Search for Specfic Keywords</u> </summary>
-    You can use the search bar to find specific retreat-related _keywords_ of interest like: "bikram", "vegetarian", "spa", "surf", "meditation" and more.
+    You can use the search bar to find specific retreat-related keywords of interest like: "bikram", "vegetarian", "spa", "surf", "meditation" and more.
 </details>
 
-<details open>
+<details>
   <summary>Browse All Yoga Retreats</summary>
-   * See Detailed information for each retreat including:
-     * Dates
-     * Pricing
-     * Availability
-     * Location
+   See Detailed information for each retreat including:
+     - Dates
+     - Pricing
+     - Availability
+     - Location
 </details>
 
 <details>
