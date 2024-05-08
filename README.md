@@ -1,10 +1,10 @@
 ![Logo](https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-8.05.35e280afpm.png?ssl=1)
-
+`
 <div>
   <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXwyNDQzMzE4M3x8ZW58MHx8fHx8" width="800" height="400">
 </div>
 
-### [CLICK TO DEMO]()
+### [CLICK TO DEMO](https://yin-voyage-388cec4a1d07.herokuapp.com/)
 
 ##### by CHRISTINA CHO
 
@@ -37,7 +37,7 @@ Gratitude
 
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438)
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438)
-![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.15e280afpm.png?resize=438%2C438)
+![Screenshot](https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-08-at-5.54.16e280afam.png?ssl=1)
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.15.55e280afpm.png?resize=438%2C438)
 
 ## :computer: Technologies Used
