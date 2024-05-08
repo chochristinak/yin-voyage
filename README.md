@@ -1,10 +1,8 @@
 ![Logo](https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-8.05.35e280afpm.png?ssl=1)
 
 <div>
-  <img src="https://images.unsplash.com/photo-1554965863-e1576e9340c4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="800" height="400">
+  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXwyNDQzMzE4M3x8ZW58MHx8fHx8" width="800" height="400">
 </div>
-
-# YIN VOYAGE
 
 ### [CLICK TO DEMO]()
 
