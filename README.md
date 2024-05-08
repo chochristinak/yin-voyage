@@ -1,11 +1,14 @@
-![Logo](https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-8.05.35e280afpm.png?ssl=1)
-`
-<div>
+<div id="logo" align="center">
+   <img src="https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-8.05.35e280afpm.png?ssl=1">
+</div>
+
+<div id="header" align="center">
   <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXwyNDQzMzE4M3x8ZW58MHx8fHx8" width="800" height="400">
 </div>
 
 ### [CLICK TO DEMO](https://yin-voyage-388cec4a1d07.herokuapp.com/)
 
+A Yoga Retreat Booking App
 ##### by CHRISTINA CHO
 
 [![Linkedin: christinakcho](https://img.shields.io/badge/-Christina%20Cho-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/christinakcho/)](https://www.linkedin.com/in/christinakcho/)
@@ -33,7 +36,7 @@ A deeper Apprecial for the Self and the World we live in
 Feeling Empowered
 Gratitude
 
-  </div>
+<>
 
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438)
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438)
@@ -61,12 +64,21 @@ Gratitude
 
 <details open>
   <summary> Browse Yoga Retreat Types By Catalog </summary>
-    Alternatively, you can use the search bar to query specific retreat-related keywords like "bikram", "vegetarian", "spa", "surf", "meditation" and more.
+    *Each catalog has a different theme and purpose with a unique collection of yoga retreats.
 </details>
 
-<details>
+<details open>
+  <summary> Search for Specfic Keywords </summary>
+    *You can use the search bar to find specific retreat-related keywords of interest like "bikram", "vegetarian", "spa", "surf", "meditation" and more.
+</details>
+
+<details open>
   <summary> Browse All Yoga Retreats </summary>
-   See Detailed information for each retreat
+   See Detailed information for each retreat including:
+    *Dates
+    *Pricing
+    *Availability
+    *Location
 </details>
 
 <details>
@@ -95,14 +107,15 @@ Gratitude
 
 ## :satellite: Upcoming Features
 
-- [:star:] Add-ons and upgrades to retreats 
-    1. Catered meal plans 
-    2. Reiki healing sessions 
-    3. One-on-one surf lessons 
-    4. Detailed listing of local shops, bars, restaurants, and ammenities available
-    5. Payment feature 
-    6. Loyalty prgram
+- [:star:] Add-ons and upgrades to retreats
+
+  1. Catered meal plans
+  2. Reiki healing sessions
+  3. One-on-one surf lessons
+  4. Detailed listing of local shops, bars, restaurants, and ammenities available
+  5. Payment feature
+  6. Loyalty prgram
 
 - [:star:] API integration for a more comprehensive list of global yoga retreats
 - [:star:] Subscription to receive emails for deals and discounts
-- [:star:] Test, debug, continuous development. 
+- [:star:] Test, debug, continuous development.

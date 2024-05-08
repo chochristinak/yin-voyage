@@ -7,14 +7,14 @@ export default function RetreatListItem({ retreat }) {
   const [liked, setLiked] = useState(false);
   
   // Upcoming feature: user wishlist 
-  // const handleLike = async () => {
-  //   setLiked(!liked);
-  //   try {
-  //     await addToWishList(userId, retreat._id);
-  //   } catch (error) {
-  //     console.error("Error adding to wishlist:", error);
-  //   }
-  // };
+  const handleLike = async () => {
+    setLiked(!liked);
+    try {
+      await addToWishList(userId, retreat._id);
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  };
 
   return (
     <Card className="RetreatsItem-wrapper m-5">
