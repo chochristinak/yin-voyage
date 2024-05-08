@@ -131,7 +131,7 @@ YinVoyage invites you to embark on your sacred odyssey to dig deep into your sou
    5. Detailed description of the locality
    6. Spa and massage packages
 
-<<<<<<< HEAD
+
 - [:star:] Add-ons and upgrades to retreats
 
   1. Catered meal plans
@@ -141,11 +141,8 @@ YinVoyage invites you to embark on your sacred odyssey to dig deep into your sou
   5. Payment feature
   6. Loyalty prgram
 
-- [	:palm_tree:] API integration for a more comprehensive list of global yoga retreats
-- [	:palm_tree:] Subscription to receive emails for deals and discounts
-- [:star:] Test, debug, continuous development.
-=======
+- :palm_tree: Collaboration with local business to provide a more comprehensive list of yoga retreats to choose from
+- :palm_tree: Subscription to receive emails for deals and discounts
 - :palm_tree: API integration for a more comprehensive list of global yoga retreats
 - :palm_tree: Subscription to receive emails for deals and discounts
 - :palm_tree: Test, debug, continuous development.
->>>>>>> a43f12cebb153b220ee59ffe8dbf5b9e14cc67e8
