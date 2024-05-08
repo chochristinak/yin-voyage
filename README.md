@@ -14,8 +14,12 @@
 [![Linkedin: christinakcho](https://img.shields.io/badge/-Christina%20Cho-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/christinakcho/)](https://www.linkedin.com/in/christinakcho/)
 [![GitHub Christina Cho](https://img.shields.io/github/followers/chochristinak?label=follow&style=social)](https://github.com/chochristinak)
 
+
+
+  
   <div id="description" align="center">
-    ##:pencil: Description
+ ## :pencil: Description
+
 <h1>YIN VOYAGE</h1>
 This is the app your soul yearns for. When the daily grind and obligations of life start to feel monotonous or make us feel burnt out, we need to seek refuge and retreat. This is essential to resetting our minds, souls, bodies, and rhythm of life to maintain a healthy balance.
 
@@ -37,6 +41,7 @@ Feeling Empowered
 Gratitude
 
 <>
+  ## :camera_flash: Screenshots 
 
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438)
 ![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438)
