@@ -3,12 +3,11 @@
 </div>
 
 <div id="header" align="center">
-  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXwyNDQzMzE4M3x8ZW58MHx8fHx8" width="800" height="400">
+  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXwyNDQzMzE4M3x8ZW58MHx8fHx8" width="300" height="150">
 </div>
 
 ### [CLICK TO DEMO](https://yin-voyage-388cec4a1d07.herokuapp.com/)
 
-## A Yoga Retreat Booking App 
 ##### by CHRISTINA CHO
 
 [![Linkedin: christinakcho](https://img.shields.io/badge/-Christina%20Cho-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/christinakcho/)](https://www.linkedin.com/in/christinakcho/)
@@ -21,36 +20,36 @@
 
 
 <h1>YIN VOYAGE</h1>
-This is the app your soul yearns for. When the daily grind and obligations of life start to feel monotonous or make us feel burnt out, we need to seek refuge and retreat. This is essential to resetting our minds, souls, bodies, and rhythm of life to maintain a healthy balance.
+A Yoga Retreat Booking App that your soul yearns for. When the daily grind and obligations of life start to feel monotonous or make us feel burnt out, we may seek refuge and retreat. This is essential to resetting our minds, souls, bodies, and rhythm of life to maintain a healthy balance.
 
-Attending a yoga retreat can offer a transformative personal jorney, an exhilharating height of adventure, advanced training and mastery, or immersive practice for a path to self disovery. The essense of Yin is the symbol of balance - the harmony of opposites. Regular yoga practice helps us to stay calm in the midst of chaos, so a yoga retreat
+Our yoga retreats can offer a transformative personal jorney, an exhilharating height of adventure, advanced training and mastery, or immersive practice for a path to self disovery. The essense of Yin is the symbol of balance to Yang :yin_yang: - the harmony of opposites. Regular yoga practice helps us to stay calm in the midst of chaos. 
 
 YinVoyage invites you to embark on your sacred odyssey to dig deep into your soul -- weather it be to wind down, rev up, or simply satisfy the wanderlust and kindred spirits. We all have a need to disconnect, rediscover, and re-connect with the abundance of inner peace and wisdom that resides within all of us.
 
-What you can expext after booking a retreat with YV:
-Inner Peace
-Expert Guidance
-Solitude
-Self Reflection
-Deep Connection & Community Building
-Holistic Approach to Wellness
-Rest and Rejuvenation
-Cultural Experiences
-A deeper Apprecial for the Self and the World we live in
-Feeling Empowered
-Gratitude
+- What you can expext after booking a retreat with YV :om: :
+   - Inner Peace
+   - Expert Guidance
+   - Solitude
+   - Self Reflection
+   - Deep Connection & Community Building
+   - Holistic Approach to Wellness
+   - Rest and Rejuvenation
+   - Cultural Experiences
+   - A deeper Apprecial for the Self and the World we live in
+   - Feeling Empowered
+   - Gratitude
 
 
   ## :camera_flash: Screenshots 
 
   <h3 align="center">Homepage</h3>
   <img
-  src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438"
+  src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png"
   width="700"
   />
   <h3 align="center">Retreats List Page</h3>
   <img
-  src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438"
+  src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png"
   width="700"
   /> 
   <h3 align="center">Deatail & Booking Page</h3>
@@ -123,17 +122,15 @@ Gratitude
   >
 </details>
 
-## :satellite: Upcoming Features
+## :blossom: Upcoming Features
+- :star: Add-ons and Upgrades to retreats :star:
+   1. Catered meal plans
+   2. Reiki healing sessions
+   3. One-on-one surf lessons
+   4. Loyalty program
+   5. Detailed description of the locality
+   6. Spa and massage packages
 
-- [:star:] Add-ons and upgrades to retreats
-
-  1. Catered meal plans
-  2. Reiki healing sessions
-  3. One-on-one surf lessons
-  4. Detailed listing of local shops, bars, restaurants, and ammenities available
-  5. Payment feature
-  6. Loyalty prgram
-
-- [:star:] API integration for a more comprehensive list of global yoga retreats
-- [:star:] Subscription to receive emails for deals and discounts
-- [:star:] Test, debug, continuous development.
+- :palm_tree: API integration for a more comprehensive list of global yoga retreats
+- :palm_tree: Subscription to receive emails for deals and discounts
+- :palm_tree: Test, debug, continuous development.
