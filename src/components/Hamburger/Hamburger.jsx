@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Hamburger = styled.div`
   width: 2rem;
@@ -15,17 +15,13 @@ const Hamburger = styled.div`
 
 const Burger = styled.div`
   width: 2rem;
-  height: .25rem;
+  height: 0.25rem;
   border-radius: 10px;
   background-color: black;
   transform-origin: 1px;
-  transition: all .03s linear;
+  transition: all 0.03s linear;
 `;
 
 export default function HamburgerMenu({ isOpen }) {
-  return (
-    <Hamburger>
-
-    </Hamburger>
-  );
+  return <Hamburger></Hamburger>;
 }

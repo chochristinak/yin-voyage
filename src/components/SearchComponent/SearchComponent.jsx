@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./SearchComponent.css";
 import DatePicker from "../../components/DatePicker/DatePicker";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 export default function SearchComponent({ retreats }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,18 +13,19 @@ export default function SearchComponent({ retreats }) {
     async function getRetreats() {
       try {
         if (searchTerm) {
-          const response = await axios.get(`/api/retreats?searchTerm=${searchTerm}`);
+          const response = await axios.get(
+            `/api/retreats?searchTerm=${searchTerm}`
+          );
           setSuggestions(response.data);
         } else {
           setSuggestions([]);
         }
       } catch (error) {
-        console.error('Error fetching retreats:', error);
+        console.error("Error fetching retreats:", error);
       }
     }
     getRetreats();
   }, [searchTerm]);
-
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -36,8 +37,6 @@ export default function SearchComponent({ retreats }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform search based on search term and date term
-    // This can be implemented based on your requirements
   };
 
   const handleKeyDown = (event) => {
@@ -71,7 +70,10 @@ export default function SearchComponent({ retreats }) {
             <ul className="suggestion-list">
               {suggestions.map((suggestion, index) => (
                 <li key={index} className="suggestion-list-item">
-                  <Link to={`/retreats/${suggestion.id}`} className="suggestion-link">
+                  <Link
+                    to={`/retreats/${suggestion.id}`}
+                    className="suggestion-link"
+                  >
                     <span className="suggestion">{suggestion.title}</span>
                     <span>{suggestion.location}</span>
                   </Link>

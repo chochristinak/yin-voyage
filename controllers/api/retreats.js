@@ -87,14 +87,14 @@ async function updateReview(req, res) {
     const review = await Review.findOne({ _id: reviewId, user: userId });
 
     if (!review) {
-      return res.status(404).json({ message: "Review not found or unauthorized" });
+      return res
+        .status(404)
+        .json({ message: "Review not found or unauthorized" });
     }
 
-   
     review.content = content;
     review.rating = rating;
-    
-  
+
     await review.save();
 
     return res.json(review);
@@ -104,16 +104,19 @@ async function updateReview(req, res) {
   }
 }
 
-
-
 async function deleteReview(req, res) {
   const reviewId = req.params.reviewId;
   const userId = req.user._id;
 
   try {
-    const review = await Review.findOneAndDelete({ _id: reviewId, user: userId });
+    const review = await Review.findOneAndDelete({
+      _id: reviewId,
+      user: userId,
+    });
     if (!review) {
-      return res.status(404).json({ message: "Review not found or unauthorized" });
+      return res
+        .status(404)
+        .json({ message: "Review not found or unauthorized" });
     }
 
     console.log(req.params.retreatId);
@@ -133,17 +136,12 @@ async function deleteReview(req, res) {
   }
 }
 
-
 async function createReview(req, res) {
-  // console.log(req.params);
-  console.log(req.body);
   try {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.content = req.body.newReview.content;
     req.body.rating = req.body.newReview.rating;
-    // console.log(req.body);
-    // console.log("hello");
     const retreat = await Retreat.findById(req.params.id);
     const newReview = await Review.create(req.body);
     retreat.reviews.push(newReview._id);
@@ -156,15 +154,10 @@ async function createReview(req, res) {
 }
 
 async function showReview(req, res) {
-  // console.log(req.body);
-  // console.log(req.params);
-
   try {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
-
     const review = await Review.find({});
-
     res.json(review);
   } catch (err) {
     console.log(err);

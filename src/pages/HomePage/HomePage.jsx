@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Catalog from "../../components/Catalog/Catalog";
 import "./HomePage.css";
 import CatalogModal from "../../components/CatalogModal/CatalogModal";
-import * as catalogsAPI from '../../utilities/catalogs-api';
+import * as catalogsAPI from "../../utilities/catalogs-api";
 import TopHeader from "../../components/TopHeader/TopHeaader";
 
 export default function HomePage() {
@@ -15,7 +15,7 @@ export default function HomePage() {
     async function getCatalogs() {
       const catalogs = await catalogsAPI.getAll();
       setCatalogs(catalogs);
-    } 
+    }
     getCatalogs();
   }, []);
 
@@ -47,10 +47,10 @@ export default function HomePage() {
           </div>
         ))}
         {selectedCatalog && (
-          <CatalogModal 
-            catalog={selectedCatalog} 
-            retreats={selectedCatalogRetreats} 
-            onClose={handleCloseModal} 
+          <CatalogModal
+            catalog={selectedCatalog}
+            retreats={selectedCatalogRetreats}
+            onClose={handleCloseModal}
           />
         )}
       </main>

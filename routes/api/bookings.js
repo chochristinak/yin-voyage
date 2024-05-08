@@ -11,7 +11,6 @@ router.post('/:id', bookingsCtrl.bookRetreat)
 
 router.get('/', bookingsCtrl.index)
 
-
 // GET /api/bookings/cart
 router.get('/cart', bookingsCtrl.cart) 
 

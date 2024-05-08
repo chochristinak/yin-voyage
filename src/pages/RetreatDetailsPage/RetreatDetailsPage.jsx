@@ -43,9 +43,7 @@ export default function RetreatDetailsPage() {
         <p>Booking confirmed for {retreat.title}!</p>
         <p>Confirmation Number: {id}</p>
         <p>Total price: ${retreat.price} USD</p>
-        <p>
-          Start date: {new Date(retreat.startDate).toLocaleDateString()}
-        </p>
+        <p>Start date: {new Date(retreat.startDate).toLocaleDateString()}</p>
       </div>
     );
   }

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import RetreatListItem from './RetreatListItem'; 
-import * as usersAPI from '../../utilities/users-api'
+import React, { useState, useEffect } from "react";
+import RetreatListItem from "./RetreatListItem";
+import * as usersAPI from "../../utilities/users-api";
 
 export default function WishlistPage({ userId }) {
   const [wishlist, setWishlist] = useState([]);
@@ -8,10 +8,10 @@ export default function WishlistPage({ userId }) {
   useEffect(() => {
     const getWishlist = async () => {
       try {
-        const wishlistData = await usersAPI.addToWishList(userId); 
+        const wishlistData = await usersAPI.addToWishList(userId);
         setWishlist(wishlistData);
       } catch (error) {
-        console.error('Error fetching wishlist:', error);
+        console.error("Error fetching wishlist:", error);
       }
     };
     getWishlist();

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function BookingDetail({ booking }) {
   return (
@@ -11,10 +11,18 @@ export default function BookingDetail({ booking }) {
           <h4>{item.retreat.title}</h4>
           <p>Quantity: {item.qty}</p>
           <p>Price: {item.extPrice}</p>
-          <p>Retreat Start Date: {new Date(item.retreat.startDate).toLocaleDateString()}</p>
-          <p>Retreat End Date: {new Date(item.retreat.endDate).toLocaleDateString()}</p>
-         
-          <Link to={`/retreats/${item.retreat._id}`}>Revisit Retreat Details</Link>
+          <p>
+            Retreat Start Date:{" "}
+            {new Date(item.retreat.startDate).toLocaleDateString()}
+          </p>
+          <p>
+            Retreat End Date:{" "}
+            {new Date(item.retreat.endDate).toLocaleDateString()}
+          </p>
+
+          <Link to={`/retreats/${item.retreat._id}`}>
+            Revisit Retreat Details
+          </Link>
         </div>
       ))}
     </div>

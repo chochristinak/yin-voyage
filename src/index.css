@@ -1,6 +1,7 @@
 main.App {
   width: 80vw;
 }
+
 :root {
   --bg-color: #ffffff;
   --primary-color: #ffffff;
@@ -25,7 +26,7 @@ body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 30px; 
+  padding-top: 30px;
   border-left: 10px solid var(--primary-color);
   border-right: 10px solid var(--primary-color);
 }
@@ -59,45 +60,48 @@ code {
 }
 
 .modal-content {
-    background-color: #fff; /* White background for a clean look */
-    border-radius: 8px; /* Soft rounded corners */
-    border: none; /* No border for a sleek appearance */
-  }
-  
-  .modal-header {
-    border-bottom: 1px solid #e9ecef; 
-    padding: 1rem 1rem; 
-  }
-  
-  .modal-title {
-    color: #5f6368; 
-    font-family: 'Open Sans', sans-serif; 
-  }
-  
-  .modal-body {
-    color: #5f6368; 
-    line-height: 1.5; 
-  }
-  
-  .modal-footer {
-    border-top: 1px solid #e9ecef;
-    padding: 0.75rem 1rem; 
-  }
-  
-  
-  .btn-primary {
-    background-color: #88a5af; 
-    border-color: #88a5af;
-    box-shadow: none;
-  }
-  
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background-color: #729ca0; 
-    border-color: #729ca0; 
-  }
-  
-  
+  background-color: #fff;
+  /* White background for a clean look */
+  border-radius: 8px;
+  /* Soft rounded corners */
+  border: none;
+  /* No border for a sleek appearance */
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 1rem;
+}
+
+.modal-title {
+  color: #5f6368;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.modal-body {
+  color: #5f6368;
+  line-height: 1.5;
+}
+
+.modal-footer {
+  border-top: 1px solid #e9ecef;
+  padding: 0.75rem 1rem;
+}
+
+
+.btn-primary {
+  background-color: #88a5af;
+  border-color: #88a5af;
+  box-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #729ca0;
+  border-color: #729ca0;
+}
+
+
 
 button *,
 button.btn.btn-primary,
@@ -121,7 +125,7 @@ button.btn.btn-primary:visited {
   text-overflow: ellipsis;
 }
 
-button.btn.btn-danger{
+button.btn.btn-danger {
   font-family: Futura-pt;
   width: 5w;
   background-color: #979696;
@@ -136,7 +140,8 @@ button.btn.btn-danger{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-button.btn.btn-info{
+
+button.btn.btn-info {
   font-family: Futura-pt;
   width: 5vw;
   background-color: #c0bdbd;

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import './Catalog.css';
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import "./Catalog.css";
 
 export default function Catalog({ catalog }) {
   return (
@@ -20,4 +20,3 @@ export default function Catalog({ catalog }) {
     </div>
   );
 }
-

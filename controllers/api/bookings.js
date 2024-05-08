@@ -10,7 +10,7 @@ module.exports = {
   cart,
   addToCart,
   setRetreatQtyInCart,
-  checkout
+  checkout,
 };
 
 async function getBookingWithRetreatDetails(req, res) {
@@ -81,7 +81,7 @@ async function bookRetreat(req, res) {
   }
 }
 
-///
+/// Keep these fundtion for add-ons and upgrades later ///
 
 async function checkout(req, res) {
   const cart = await Booking.getCart(req.user._id);

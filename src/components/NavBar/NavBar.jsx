@@ -1,5 +1,3 @@
-// NavBar.jsx
-
 import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -52,7 +50,7 @@ export default function NavBar({ user, setUser }) {
                 <Nav.Link onClick={handleLogOut}>Log Out</Nav.Link>
               </Nav>
               <Badge className="welcome-badge" variant="secondary">
-              Welcome, {user.name.toUpperCase()}
+                Welcome, {user.name.toUpperCase()}
               </Badge>
             </Navbar.Collapse>
           </Container>

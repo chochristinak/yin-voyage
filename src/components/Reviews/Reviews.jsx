@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Form, Button } from "react-bootstrap"; // Import React Bootstrap components
+import { Card, Form, Button } from "react-bootstrap"; 
 import * as retreatsAPI from "../../utilities/retreats-api";
 import "./Reviews.css";
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -96,7 +96,7 @@ export default function Reviews({ retreat }) {
           );
         })}
         <br />
-        <Button type="submit">Submit Review</Button> 
+        <Button type="submit">Submit Review</Button>
       </Form>
     </div>
   );

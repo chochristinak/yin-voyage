@@ -1,43 +1,42 @@
 .form-container {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    color: #4a7c59;
-    margin-bottom: 0.5rem;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  
-  button:hover {
-    background-color: #3a5c47;
-  }
-  
-  button:disabled {
-    background-color: #9dbbae;
-  }
-  
-  .error-message {
-    color: #ff6b6b;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #4a7c59;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+
+button:hover {
+  background-color: #3a5c47;
+}
+
+button:disabled {
+  background-color: #9dbbae;
+}
+
+.error-message {
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 1rem;
+}
