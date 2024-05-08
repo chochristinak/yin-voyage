@@ -132,7 +132,7 @@ YinVoyage invites you to embark on your sacred odyssey to dig deep into your sou
    6. Spa and massage packages
 
 
-- [:star:] Add-ons and upgrades to retreats
+- :star: Add-ons and upgrades to retreats
 
   1. Catered meal plans
   2. Reiki healing sessions
