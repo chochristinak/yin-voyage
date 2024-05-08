@@ -51,7 +51,6 @@ export default function RetreatListItem({ retreat }) {
               fill="currentColor"
               className="bi bi-heart"
               viewBox="0 0 16 16"
-              onClick={handleLike}
               style={{
                 cursor: "pointer",
                 position: "absolute",
