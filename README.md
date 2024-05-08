@@ -16,9 +16,9 @@
 
 
 
-  
-  <div id="description" align="center">
  ## :pencil: Description
+  <div id="description" align="center">
+
 
 <h1>YIN VOYAGE</h1>
 This is the app your soul yearns for. When the daily grind and obligations of life start to feel monotonous or make us feel burnt out, we need to seek refuge and retreat. This is essential to resetting our minds, souls, bodies, and rhythm of life to maintain a healthy balance.
@@ -43,10 +43,22 @@ Gratitude
 <>
   ## :camera_flash: Screenshots 
 
-![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png?resize=438%2C438)
-![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438)
-![Screenshot](https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-08-at-5.54.16e280afam.png?ssl=1)
-![Screenshot](https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.15.55e280afpm.png?resize=438%2C438)
+   |   Description | Screenshot | 
+  |:-------------:| -----------|
+  | <h3 align="center">Homepage</h3> | <img
+  src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.16.37e280afpm.png"
+  width="700"
+  /> |
+  <h3 align="center">Retreats List Page</h3> | <img
+  src="https://totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-07-at-10.17.00e280afpm.png?resize=438%2C438"
+  width="700"
+  /> |
+  <h3 align="center">Deatail & Booking Page</h3> | <img
+  src="https://i0.wp.com/totemsurftribe.files.wordpress.com/2024/05/screenshot-2024-05-08-at-5.54.16e280afam.png?ssl=1"
+  width="700"
+  /> |
+
+
 
 ## :computer: Technologies Used
 
@@ -105,8 +117,8 @@ Gratitude
 
 <details open>
   <summary> Deployed Link (Heroku) </summary>
-  <a href=" link here"
-    > link here </a
+  <a href="https://yin-voyage-388cec4a1d07.herokuapp.com/"
+    > YIN VOYAGE </a
   >
 </details>
 
