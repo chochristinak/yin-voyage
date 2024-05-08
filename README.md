@@ -8,14 +8,14 @@
 
 ### [CLICK TO DEMO](https://yin-voyage-388cec4a1d07.herokuapp.com/)
 
-A Yoga Retreat Booking App
+## A Yoga Retreat Booking App 
 ##### by CHRISTINA CHO
 
 [![Linkedin: christinakcho](https://img.shields.io/badge/-Christina%20Cho-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/christinakcho/)](https://www.linkedin.com/in/christinakcho/)
 [![GitHub Christina Cho](https://img.shields.io/github/followers/chochristinak?label=follow&style=social)](https://github.com/chochristinak)
 
   <div id="description" align="center">
-    ## :pencil: Description
+    ##:pencil: Description
 <h1>YIN VOYAGE</h1>
 This is the app your soul yearns for. When the daily grind and obligations of life start to feel monotonous or make us feel burnt out, we need to seek refuge and retreat. This is essential to resetting our minds, souls, bodies, and rhythm of life to maintain a healthy balance.
 
